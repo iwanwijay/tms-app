@@ -415,7 +415,7 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
           ? L.Icon.Default // End
           : waypointIcon; // Intermediate
       
-      const marker = L.marker([coords.lat, coords.lng], { icon })
+      const marker = L.marker([coords.lat, coords.lng])
         .addTo(map)
         .bindPopup(`<b>${city}</b><br>${index === 0 ? 'Titik Awal' : index === waypoints.length - 1 ? 'Tujuan Akhir' : 'Pemberhentian'}`);
       
@@ -538,7 +538,7 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
     };
     
     getMultiStopRoute();
-  }, [waypoints, map]);
+  }, [waypoints.join(','), map]);
 
   return (
     <div className="multi-stop-osrm-route-map">

@@ -94,6 +94,7 @@ function App() {
         ...routeData,
         costs: adjustedCosts
       });
+      setShowRouteResults(false);
     }
   };
 
