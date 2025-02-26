@@ -36,7 +36,7 @@ function App() {
   const [showRouteResults, setShowRouteResults] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [routeDetails, setRouteDetails] = useState(null);
-  const [vehicleType, setVehicleType] = useState("truck");
+  const [vehicleType, setVehicleType] = useState("CDD");
   const [loading, setLoading] = useState(false);
 
   const indonesianCities = Object.entries(districts)
@@ -101,7 +101,7 @@ function App() {
 
     if (routeData) {
       // Adjust costs based on vehicle type
-      const costMultiplier = vehicleType === "truck" ? 1 : 0.75;
+      const costMultiplier = vehicleType === "CDD" ? 1 : 0.75;
       const adjustedCosts = {
         ...routeData.costs,
         fuelCost: Math.round(routeData.costs.fuelCost * costMultiplier),
@@ -372,22 +372,22 @@ function App() {
             <label style={{ marginRight: "1rem" }}>
               <input
                 type="radio"
-                value="truck"
-                checked={vehicleType === "truck"}
-                onChange={() => setVehicleType("truck")}
+                value="CDD"
+                checked={vehicleType === "CDD"}
+                onChange={() => setVehicleType("CDD")}
                 style={{ marginRight: "0.5rem" }}
               />
-              Truk
+              CDD
             </label>
             <label>
               <input
                 type="radio"
-                value="van"
-                checked={vehicleType === "van"}
-                onChange={() => setVehicleType("van")}
+                value="CDE"
+                checked={vehicleType === "CDE"}
+                onChange={() => setVehicleType("CDE")}
                 style={{ marginRight: "0.5rem" }}
               />
-              Van
+              CDE
             </label>
           </div>
 
@@ -765,26 +765,26 @@ const shipmentData = [
   {
     id: "#TMS-5842",
     origin: "Jakarta",
-    destination: "Surabaya",
-    customer: "PT Maju Bersama",
+    destination: "Jakarta",
+    customer: "Sociolla Gandaria City",
     status: "Dalam Perjalanan",
     statusClass: "in-transit",
     estimatedDelivery: "26 Feb 2025",
   },
   {
     id: "#TMS-5841",
-    origin: "Surabaya",
-    destination: "Malang",
-    customer: "CV Global Niaga",
+    origin: "Jakarta",
+    destination: "Jakarta",
+    customer: "Sociolla Grand Indonesia",
     status: "Terkirim",
     statusClass: "delivered",
     estimatedDelivery: "25 Feb 2025",
   },
   {
     id: "#TMS-5840",
-    origin: "Medan",
-    destination: "Palembang",
-    customer: "PT Sistem Teknologi",
+    origin: "Jakarta",
+    destination: "Jakarta",
+    customer: "Sociolla Lippo Mall Puri",
     status: "Menunggu",
     statusClass: "pending",
     estimatedDelivery: "27 Feb 2025",
@@ -792,21 +792,12 @@ const shipmentData = [
   {
     id: "#TMS-5839",
     origin: "Jakarta",
-    destination: "Yogyakarta",
-    customer: "PT Logistik Timur",
+    destination: "Jakarta",
+    customer: "Sociolla Kelapa Gading",
     status: "Dalam Perjalanan",
     statusClass: "in-transit",
     estimatedDelivery: "26 Feb 2025",
-  },
-  {
-    id: "#TMS-5838",
-    origin: "Bandung",
-    destination: "Surabaya",
-    customer: "CV Bali Cargo",
-    status: "Terkirim",
-    statusClass: "delivered",
-    estimatedDelivery: "24 Feb 2025",
-  },
+  }
 ];
 
 // Sample data for drivers
@@ -814,8 +805,8 @@ const driverData = [
   {
     id: "#D-342",
     name: "Budi Santoso",
-    vehicle: "Truk #T-102",
-    location: "Bandung",
+    vehicle: "CDD #T-102",
+    location: "Jakarta",
     status: "Bertugas",
     statusClass: "in-transit",
     nextAvailable: "27 Feb 2025",
@@ -823,7 +814,7 @@ const driverData = [
   {
     id: "#D-285",
     name: "Siti Rahma",
-    vehicle: "Van #V-054",
+    vehicle: "CDE #V-054",
     location: "Jakarta",
     status: "Tersedia",
     statusClass: "delivered",
@@ -832,8 +823,8 @@ const driverData = [
   {
     id: "#D-198",
     name: "Agus Wijaya",
-    vehicle: "Truk #T-088",
-    location: "Surabaya",
+    vehicle: "CDD #T-088",
+    location: "Jakarta",
     status: "Tidak Bertugas",
     statusClass: "pending",
     nextAvailable: "26 Feb 2025",
@@ -841,8 +832,8 @@ const driverData = [
   {
     id: "#D-421",
     name: "Dewi Lestari",
-    vehicle: "Van #V-032",
-    location: "Medan",
+    vehicle: "CDE #V-032",
+    location: "Jakarta",
     status: "Bertugas",
     statusClass: "in-transit",
     nextAvailable: "28 Feb 2025",
@@ -850,8 +841,8 @@ const driverData = [
   {
     id: "#D-367",
     name: "Rudi Hermawan",
-    vehicle: "Truk #T-115",
-    location: "Yogyakarta",
+    vehicle: "CDD #T-115",
+    location: "Jakarta",
     status: "Tersedia",
     statusClass: "delivered",
     nextAvailable: "Sekarang",
