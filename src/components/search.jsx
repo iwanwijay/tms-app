@@ -11,9 +11,10 @@ const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
   // Filter options based on search term
   useEffect(() => {
     if (!options) return;
-    
-    const filtered = options.filter(option => 
-      option.label.toLowerCase().includes(searchTerm.toLowerCase())
+
+    const filtered = options.filter(option =>
+      option.store_code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      option.store_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredOptions(filtered);
   }, [searchTerm, options]);
@@ -39,7 +40,7 @@ const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
-    setSearchTerm(option.label);
+    setSearchTerm(`${option.store_code} - ${option.store_name}`);
     setIsOpen(false);
     if (onChange) onChange(option);
   };
@@ -79,7 +80,7 @@ const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
           {filteredOptions.length > 0 ? (
             filteredOptions.map((option) => (
               <div
-                key={option.value}
+                key={option.store_code}
                 className="dropdown-option"
                 onClick={() => handleSelectOption(option)}
               >
