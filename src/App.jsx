@@ -11,21 +11,25 @@ import {
   faArrowUp, faArrowDown, faInfoCircle, faLocationDot, faTimes,
   faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons';
+import districts from './districts.json';
 
 function App() {
   const [waypoints, setWaypoints] = useState(['']);
   const [showRouteResults, setShowRouteResults] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const [routeDetails, setRouteDetails] = useState(null);
   const [vehicleType, setVehicleType] = useState('truck');
   const [loading, setLoading] = useState(false);
 
   // List of Indonesian cities
-  const indonesianCities = [
-    'Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Makassar', 'Semarang', 
-    'Palembang', 'Yogyakarta', 'Denpasar', 'Balikpapan', 'Malang', 
-    'Solo', 'Cirebon', 'Purwokerto', 'Tasikmalaya', 'Pekalongan', 
-    'Magelang', 'Jember', 'Kediri', 'Probolinggo'
-  ];
+  // const indonesianCities = [
+  //   'Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Makassar', 'Semarang', 
+  //   'Palembang', 'Yogyakarta', 'Denpasar', 'Balikpapan', 'Malang', 
+  //   'Solo', 'Cirebon', 'Purwokerto', 'Tasikmalaya', 'Pekalongan', 
+  //   'Magelang', 'Jember', 'Kediri', 'Probolinggo'
+  // ];
+
+  const indonesianCities = Object.keys(districts);
 
   // Add another waypoint field
   const addWaypoint = () => {
@@ -61,7 +65,7 @@ function App() {
     // Check for duplicates next to each other
     for (let i = 0; i < filteredWaypoints.length - 1; i++) {
       if (filteredWaypoints[i] === filteredWaypoints[i + 1]) {
-        alert('Rute tidak boleh memiliki lokasi yang sama berurutan.');
+        alert('Cannot use same route!');
         return;
       }
     }
@@ -95,6 +99,7 @@ function App() {
         costs: adjustedCosts
       });
       setShowRouteResults(false);
+      setShowDetails(true);
     }
   };
 
@@ -127,7 +132,7 @@ function App() {
           <nav>
             <div className="logo">
               <FontAwesomeIcon icon={faTruck} className="logo-icon" />
-              <span>TransportEase</span>
+              <span>TMS</span>
             </div>
             <div className="nav-links">
               <a href="#" className="active">Dashboard</a>
@@ -240,8 +245,7 @@ function App() {
         
         <div className="section">
           <div className="section-header">
-            <h2 className="section-title">Kalkulator Rute Multi-Kota</h2>
-            <button className="secondary">Riwayat Rute</button>
+            <h2 className="section-title">Route Calculation</h2>
           </div>
           
           <div style={{ marginBottom: '1.5rem' }}>
@@ -255,7 +259,7 @@ function App() {
                 }}>
                   <div style={{ flex: 1 }}>
                     <label htmlFor={`waypoint-${index}`} className="block text-sm font-medium text-slate-700 mb-1">
-                      {index === 0 ? 'Titik Awal' : index === waypoints.length - 1 ? 'Tujuan Akhir' : `Pemberhentian ${index}`}
+                      {index === 0 ? 'Start point' : index === waypoints.length - 1 ? 'End point' : `Stop ${index}`}
                     </label>
                     <select 
                       id={`waypoint-${index}`}
@@ -263,7 +267,7 @@ function App() {
                       value={waypoint}
                       onChange={(e) => updateWaypoint(index, e.target.value)}
                     >
-                      <option value="">Pilih Lokasi</option>
+                      <option value="">Choose location</option>
                       {indonesianCities.map(city => (
                         <option key={`${index}-${city}`} value={city}>{city}</option>
                       ))}
@@ -298,7 +302,7 @@ function App() {
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
               >
                 <FontAwesomeIcon icon={faPlus} />
-                Tambah Pemberhentian
+                Add stop
               </button>
               
               <button 
@@ -306,13 +310,13 @@ function App() {
                 disabled={loading}
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
               >
-                {loading ? 'Memuat...' : 'Hitung Rute'}
+                {loading ? 'Loading...' : 'Calculate Route'}
               </button>
             </div>
           </div>
           
           <div className="vehicle-type-selector" style={{ marginBottom: '1rem' }}>
-            <label style={{ marginRight: '1rem' }}>Jenis Kendaraan:</label>
+            <label style={{ marginRight: '1rem' }}>Vehicle type:</label>
             <label style={{ marginRight: '1rem' }}>
               <input
                 type="radio"
@@ -343,7 +347,7 @@ function App() {
             />
           </div>
           
-          {showRouteResults && routeDetails && (
+          {(showRouteResults || showDetails) && routeDetails && (
             <div id="route-results" className="route-results">
               {routeDetails.isEstimated && (
                 <div className="route-estimated-note" style={{ 
@@ -583,10 +587,10 @@ function App() {
         <div className="container flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
             <FontAwesomeIcon icon={faTruck} className="text-primary mr-2" />
-            <span className="text-lg font-semibold text-primary">TransportEase</span>
+            <span className="text-lg font-semibold text-primary">Transport Management System</span>
           </div>
           <div className="text-slate-500 text-sm">
-            &copy; 2025 TransportEase TMS. Hak Cipta Dilindungi.
+            &copy; 2025 Transport Management System.
           </div>
         </div>
       </footer>
