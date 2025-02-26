@@ -1,41 +1,50 @@
 // App.js - With Multi-Stop Route Planning
-import React, { useState } from 'react';
-import './App.css';
-import MultiStopOSRMRoute from './components/map';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from "react";
+import "./App.css";
+import MultiStopOSRMRoute from "./components/map";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTruck, faBell, faUser, faPlus, faTruckLoading,
-  faClock, faDollarSign, faPlay, faRoad, faArrowsTurnRight,
+  faTruck,
+  faBell,
+  faUser,
+  faPlus,
+  faTruckLoading,
+  faClock,
+  faDollarSign,
+  faPlay,
+  faRoad,
+  faArrowsTurnRight,
   // faArrowLeft,
-  faFlagCheckered, faShip, faEye, faEdit, faPhone, faCalendar,
-  faArrowUp, faArrowDown, faInfoCircle, faLocationDot, faTimes,
-  faMapMarkerAlt
-} from '@fortawesome/free-solid-svg-icons';
-import districts from './districts.json';
-import Search from './components/search';
+  faFlagCheckered,
+  faShip,
+  faEye,
+  faEdit,
+  faPhone,
+  faCalendar,
+  faArrowUp,
+  faArrowDown,
+  faInfoCircle,
+  faLocationDot,
+  faTimes,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import districts from "./districts.json";
+import Search from "./components/search";
 
 function App() {
-  const [waypoints, setWaypoints] = useState(['']);
+  const [waypoints, setWaypoints] = useState([""]);
   const [showRouteResults, setShowRouteResults] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [routeDetails, setRouteDetails] = useState(null);
-  const [vehicleType, setVehicleType] = useState('truck');
+  const [vehicleType, setVehicleType] = useState("truck");
   const [loading, setLoading] = useState(false);
-
-  // List of Indonesian cities
-  // const indonesianCities = [
-  //   'Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Makassar', 'Semarang', 
-  //   'Palembang', 'Yogyakarta', 'Denpasar', 'Balikpapan', 'Malang', 
-  //   'Solo', 'Cirebon', 'Purwokerto', 'Tasikmalaya', 'Pekalongan', 
-  //   'Magelang', 'Jember', 'Kediri', 'Probolinggo'
-  // ];
 
   const indonesianCities = Object.entries(districts)
     .filter(([_, value]) => value.store_code && value.store_name)
     .map(([key, value]) => ({
       name: key,
       store_code: value.store_code,
-      store_name: value.store_name
+      store_name: value.store_name,
     }));
   const mappingDistricts = indonesianCities.map((d) => ({
     ...d,
@@ -45,7 +54,7 @@ function App() {
 
   // Add another waypoint field
   const addWaypoint = () => {
-    setWaypoints([...waypoints, '']);
+    setWaypoints([...waypoints, ""]);
   };
 
   // Remove a waypoint
@@ -67,17 +76,17 @@ function App() {
 
   const calculateRoute = () => {
     // Filter out any empty waypoints
-    const filteredWaypoints = waypoints.filter(wp => wp);
+    const filteredWaypoints = waypoints.filter((wp) => wp);
 
     if (filteredWaypoints.length < 2) {
-      alert('Pilih minimal 2 lokasi untuk menghitung rute.');
+      alert("Pilih minimal 2 lokasi untuk menghitung rute.");
       return;
     }
 
     // Check for duplicates next to each other
     for (let i = 0; i < filteredWaypoints.length - 1; i++) {
       if (filteredWaypoints[i] === filteredWaypoints[i + 1]) {
-        alert('Cannot use same route!');
+        alert("Cannot use same route!");
         return;
       }
     }
@@ -92,23 +101,25 @@ function App() {
 
     if (routeData) {
       // Adjust costs based on vehicle type
-      const costMultiplier = vehicleType === 'truck' ? 1 : 0.75;
+      const costMultiplier = vehicleType === "truck" ? 1 : 0.75;
       const adjustedCosts = {
         ...routeData.costs,
         fuelCost: Math.round(routeData.costs.fuelCost * costMultiplier),
-        maintenanceCost: Math.round(routeData.costs.maintenanceCost * costMultiplier),
+        maintenanceCost: Math.round(
+          routeData.costs.maintenanceCost * costMultiplier
+        ),
         tollCost: Math.round(routeData.costs.tollCost * costMultiplier),
         totalCost: Math.round(
           routeData.costs.fuelCost * costMultiplier +
-          routeData.costs.maintenanceCost * costMultiplier +
-          routeData.costs.tollCost * costMultiplier +
-          routeData.costs.driverCost
-        )
+            routeData.costs.maintenanceCost * costMultiplier +
+            routeData.costs.tollCost * costMultiplier +
+            routeData.costs.driverCost
+        ),
       };
 
       setRouteDetails({
         ...routeData,
-        costs: adjustedCosts
+        costs: adjustedCosts,
       });
       setShowRouteResults(false);
       setShowDetails(true);
@@ -117,29 +128,25 @@ function App() {
 
   const handleRowClick = (id) => {
     // In a real application, this would open detailed view
-    console.log('Row clicked:', id);
+    console.log("Row clicked:", id);
   };
 
   // Function to get icon for route step instructions
   const getStepIcon = (step) => {
-    if (step.icon === 'play') return faPlay;
-    if (step.icon === 'road') return faRoad;
-    if (step.icon === 'turn-right') return faArrowsTurnRight;
+    if (step.icon === "play") return faPlay;
+    if (step.icon === "road") return faRoad;
+    if (step.icon === "turn-right") return faArrowsTurnRight;
     // if (step.icon === 'turn-left') return faArrowLeft;
-    if (step.icon === 'flag-checkered') return faFlagCheckered;
-    if (step.icon === 'ship') return faShip;
-    if (step.icon === 'location-pin') return faMapMarkerAlt;
+    if (step.icon === "flag-checkered") return faFlagCheckered;
+    if (step.icon === "ship") return faShip;
+    if (step.icon === "location-pin") return faMapMarkerAlt;
     return faRoad; // Default icon
   };
 
   // Helper function to format currency
   const formatRupiah = (number) => {
-    return new Intl.NumberFormat('id-ID').format(number);
+    return new Intl.NumberFormat("id-ID").format(number);
   };
-
-  const handleChange = (district) => {
-    console.log("selected district => ", district);
-  }
 
   return (
     <div className="app">
@@ -151,7 +158,9 @@ function App() {
               <span>TMS</span>
             </div>
             <div className="nav-links">
-              <a href="#" className="active">Dashboard</a>
+              <a href="#" className="active">
+                Dashboard
+              </a>
               <a href="#">Pengiriman</a>
               <a href="#">Kendaraan</a>
               <a href="#">Pengemudi</a>
@@ -185,7 +194,10 @@ function App() {
           <div className="card">
             <div className="card-header">
               <div className="card-title">Pengiriman Aktif</div>
-              <div className="card-icon" style={{ backgroundColor: 'var(--primary)' }}>
+              <div
+                className="card-icon"
+                style={{ backgroundColor: "var(--primary)" }}
+              >
                 <FontAwesomeIcon icon={faTruckLoading} />
               </div>
             </div>
@@ -204,7 +216,10 @@ function App() {
           <div className="card">
             <div className="card-header">
               <div className="card-title">Kendaraan Tersedia</div>
-              <div className="card-icon" style={{ backgroundColor: 'var(--success)' }}>
+              <div
+                className="card-icon"
+                style={{ backgroundColor: "var(--success)" }}
+              >
                 <FontAwesomeIcon icon={faTruck} />
               </div>
             </div>
@@ -223,7 +238,10 @@ function App() {
           <div className="card">
             <div className="card-header">
               <div className="card-title">Pengiriman Tepat Waktu</div>
-              <div className="card-icon" style={{ backgroundColor: 'var(--warning)' }}>
+              <div
+                className="card-icon"
+                style={{ backgroundColor: "var(--warning)" }}
+              >
                 <FontAwesomeIcon icon={faClock} />
               </div>
             </div>
@@ -242,7 +260,10 @@ function App() {
           <div className="card">
             <div className="card-header">
               <div className="card-title">Pendapatan Bulanan</div>
-              <div className="card-icon" style={{ backgroundColor: 'var(--secondary)' }}>
+              <div
+                className="card-icon"
+                style={{ backgroundColor: "var(--secondary)" }}
+              >
                 <FontAwesomeIcon icon={faDollarSign} />
               </div>
             </div>
@@ -264,57 +285,70 @@ function App() {
             <h2 className="section-title">Route Calculation</h2>
           </div>
 
-          <div style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: "1.5rem" }}>
             <div className="multi-stop-form">
               {waypoints.map((waypoint, index) => (
-                <div key={index} className="waypoint-row" style={{ 
-                  display: 'flex', 
-                  gap: '0.5rem', 
-                  alignItems: 'center'
-                }}>
+                <div
+                  key={index}
+                  className="waypoint-row"
+                  style={{
+                    display: "flex",
+                    gap: "0.5rem",
+                    alignItems: "center",
+                  }}
+                >
                   <div style={{ flex: 1 }}>
-                    <label htmlFor={`waypoint-${index}`} className="block text-sm font-medium text-slate-700 mb-1">
-                      {index === 0 ? 'Start point' : index === waypoints.length - 1 ? 'End point' : `Stop ${index}`}
+                    <label
+                      htmlFor={`waypoint-${index}`}
+                      className="block text-sm font-medium text-slate-700 mb-1"
+                    >
+                      {index === 0
+                        ? "Start point"
+                        : index === waypoints.length - 1
+                        ? "End point"
+                        : `Stop ${index}`}
                     </label>
 
                     <div>
-                      <div style={{ marginBottom: '1rem' }}>
+                      <div style={{ marginBottom: "1rem" }}>
                         <Search
-                          id={`waypoint-${index}`} 
-                          options={mappingDistricts} 
+                          id={`waypoint-${index}`}
+                          options={mappingDistricts}
                           placeholder="Select district..."
-                          onChange={(e) => updateWaypoint(index, e.value)} 
+                          onChange={(e) => updateWaypoint(index, e.value)}
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Remove button - only show for intermediate waypoints when there are more than 2 waypoints */}
-                  {waypoints.length > 2 && index > 0 && index < waypoints.length - 1 && (
-                    <button
-                      className="remove-waypoint"
-                      onClick={() => removeWaypoint(index)}
-                      style={{
-                        backgroundColor: 'transparent',
-                        color: 'var(--danger)',
-                        border: '1px solid var(--danger)',
-                        borderRadius: '0.25rem',
-                        padding: '0.5rem 0.75rem',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <FontAwesomeIcon icon={faTimes} />
-                    </button>
-                  )}
+                  {waypoints.length > 2 &&
+                    index > 0 &&
+                    index < waypoints.length - 1 && (
+                      <button
+                        className="remove-waypoint"
+                        onClick={() => removeWaypoint(index)}
+                        style={{
+                          backgroundColor: "transparent",
+                          color: "var(--danger)",
+                          border: "1px solid var(--danger)",
+                          borderRadius: "0.25rem",
+                          padding: "0.5rem 0.75rem",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faTimes} />
+                      </button>
+                    )}
                 </div>
               ))}
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
               <button
                 onClick={addWaypoint}
                 className="secondary"
-                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
               >
                 <FontAwesomeIcon icon={faPlus} />
                 Add stop
@@ -323,22 +357,25 @@ function App() {
               <button
                 onClick={calculateRoute}
                 disabled={loading}
-                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
               >
-                {loading ? 'Loading...' : 'Calculate Route'}
+                {loading ? "Loading..." : "Calculate Route"}
               </button>
             </div>
           </div>
 
-          <div className="vehicle-type-selector" style={{ marginBottom: '1rem' }}>
-            <label style={{ marginRight: '1rem' }}>Vehicle type:</label>
-            <label style={{ marginRight: '1rem' }}>
+          <div
+            className="vehicle-type-selector"
+            style={{ marginBottom: "1rem" }}
+          >
+            <label style={{ marginRight: "1rem" }}>Vehicle type:</label>
+            <label style={{ marginRight: "1rem" }}>
               <input
                 type="radio"
                 value="truck"
-                checked={vehicleType === 'truck'}
-                onChange={() => setVehicleType('truck')}
-                style={{ marginRight: '0.5rem' }}
+                checked={vehicleType === "truck"}
+                onChange={() => setVehicleType("truck")}
+                style={{ marginRight: "0.5rem" }}
               />
               Truk
             </label>
@@ -346,18 +383,18 @@ function App() {
               <input
                 type="radio"
                 value="van"
-                checked={vehicleType === 'van'}
-                onChange={() => setVehicleType('van')}
-                style={{ marginRight: '0.5rem' }}
+                checked={vehicleType === "van"}
+                onChange={() => setVehicleType("van")}
+                style={{ marginRight: "0.5rem" }}
               />
               Van
             </label>
           </div>
 
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: "relative" }}>
             {/* Multi-Stop OSRM Integration */}
             <MultiStopOSRMRoute
-              waypoints={showRouteResults ? waypoints.filter(wp => wp) : []}
+              waypoints={showRouteResults ? waypoints.filter((wp) => wp) : []}
               onRouteCalculated={handleRouteCalculated}
             />
           </div>
@@ -365,44 +402,75 @@ function App() {
           {(showRouteResults || showDetails) && routeDetails && (
             <div id="route-results" className="route-results">
               {routeDetails.isEstimated && (
-                <div className="route-estimated-note" style={{
-                  backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                  color: 'var(--warning)',
-                  padding: '0.75rem',
-                  borderRadius: '0.375rem',
-                  marginBottom: '1rem',
-                  fontSize: '0.875rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
-                }}>
+                <div
+                  className="route-estimated-note"
+                  style={{
+                    backgroundColor: "rgba(245, 158, 11, 0.1)",
+                    color: "var(--warning)",
+                    padding: "0.75rem",
+                    borderRadius: "0.375rem",
+                    marginBottom: "1rem",
+                    fontSize: "0.875rem",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
                   <FontAwesomeIcon icon={faInfoCircle} />
-                  <span>Rute ini diperkirakan. Data rute yang tepat mungkin tidak tersedia untuk lokasi yang dipilih.</span>
+                  <span>
+                    Rute ini diperkirakan. Data rute yang tepat mungkin tidak
+                    tersedia untuk lokasi yang dipilih.
+                  </span>
                 </div>
               )}
 
-              <div className="route-summary" style={{
-                backgroundColor: 'var(--primary)',
-                color: 'white',
-                padding: '1rem',
-                borderRadius: '0.375rem',
-                marginBottom: '1.5rem'
-              }}>
-                <h3 style={{ marginBottom: '0.5rem', fontWeight: 'bold', fontSize: '1.125rem' }}>
+              <div
+                className="route-summary"
+                style={{
+                  backgroundColor: "var(--primary)",
+                  color: "white",
+                  padding: "1rem",
+                  borderRadius: "0.375rem",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                <h3
+                  style={{
+                    marginBottom: "0.5rem",
+                    fontWeight: "bold",
+                    fontSize: "1.125rem",
+                  }}
+                >
                   Ringkasan Rute
                 </h3>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 2rem' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "0.5rem 2rem",
+                  }}
+                >
                   <div>
-                    <div style={{ fontSize: '0.875rem', opacity: 0.9 }}>Total Jarak</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>{routeDetails.distance} km</div>
+                    <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
+                      Total Jarak
+                    </div>
+                    <div style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
+                      {routeDetails.distance} km
+                    </div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.875rem', opacity: 0.9 }}>Waktu Tempuh</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>{routeDetails.duration}</div>
+                    <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
+                      Waktu Tempuh
+                    </div>
+                    <div style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
+                      {routeDetails.duration}
+                    </div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.875rem', opacity: 0.9 }}>Total Biaya</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>
+                    <div style={{ fontSize: "0.875rem", opacity: 0.9 }}>
+                      Total Biaya
+                    </div>
+                    <div style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
                       Rp {formatRupiah(routeDetails.costs?.totalCost || 0)}
                     </div>
                   </div>
@@ -411,28 +479,59 @@ function App() {
 
               {/* Leg-by-leg breakdown */}
               {routeDetails.legs && (
-                <div className="route-legs" style={{ marginBottom: '1.5rem' }}>
-                  <h3 style={{ marginBottom: '0.75rem', fontWeight: 'bold' }}>Detail Perjalan</h3>
-                  <div className="legs-container" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div className="route-legs" style={{ marginBottom: "1.5rem" }}>
+                  <h3 style={{ marginBottom: "0.75rem", fontWeight: "bold" }}>
+                    Detail Perjalan
+                  </h3>
+                  <div
+                    className="legs-container"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0.5rem",
+                    }}
+                  >
                     {routeDetails.legs.map((leg, index) => (
                       <div
                         key={index}
                         className="leg-item"
                         style={{
-                          backgroundColor: 'white',
-                          borderRadius: '0.375rem',
-                          padding: '0.75rem',
-                          boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
-                          border: '1px solid var(--border)'
+                          backgroundColor: "white",
+                          borderRadius: "0.375rem",
+                          padding: "0.75rem",
+                          boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
+                          border: "1px solid var(--border)",
                         }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                          <FontAwesomeIcon icon={faLocationDot} style={{ color: 'var(--primary)' }} />
-                          <span style={{ fontWeight: 'bold' }}>{leg.from} ke {leg.to}</span>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.5rem",
+                            marginBottom: "0.5rem",
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faLocationDot}
+                            style={{ color: "var(--primary)" }}
+                          />
+                          <span style={{ fontWeight: "bold" }}>
+                            {leg.from} ke {leg.to}
+                          </span>
                         </div>
-                        <div style={{ display: 'flex', gap: '2rem', color: 'var(--secondary)', fontSize: '0.875rem' }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "2rem",
+                            color: "var(--secondary)",
+                            fontSize: "0.875rem",
+                          }}
+                        >
                           <div>Jarak: {leg.distance} km</div>
-                          <div>Waktu: {Math.floor(leg.duration / 60)} jam {leg.duration % 60} menit</div>
+                          <div>
+                            Waktu: {Math.floor(leg.duration / 60)} jam{" "}
+                            {leg.duration % 60} menit
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -440,45 +539,86 @@ function App() {
                 </div>
               )}
 
-              <div className="cost-breakdown" style={{
-                marginTop: '1.5rem',
-                backgroundColor: 'var(--light)',
-                padding: '1rem',
-                borderRadius: '0.375rem'
-              }}>
-                <h4 style={{ marginBottom: '0.75rem' }}>Rincian Biaya:</h4>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <div
+                className="cost-breakdown"
+                style={{
+                  marginTop: "1.5rem",
+                  backgroundColor: "var(--light)",
+                  padding: "1rem",
+                  borderRadius: "0.375rem",
+                }}
+              >
+                <h4 style={{ marginBottom: "0.75rem" }}>Rincian Biaya:</h4>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   <span>Biaya Bahan Bakar:</span>
-                  <span>Rp. {formatRupiah(routeDetails.costs?.fuelCost || 0)}</span>
+                  <span>
+                    Rp. {formatRupiah(routeDetails.costs?.fuelCost || 0)}
+                  </span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   <span>Biaya Tol:</span>
-                  <span>Rp. {formatRupiah(routeDetails.costs?.tollCost || 0)}</span>
+                  <span>
+                    Rp. {formatRupiah(routeDetails.costs?.tollCost || 0)}
+                  </span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   <span>Biaya Perawatan:</span>
-                  <span>Rp. {formatRupiah(routeDetails.costs?.maintenanceCost || 0)}</span>
+                  <span>
+                    Rp. {formatRupiah(routeDetails.costs?.maintenanceCost || 0)}
+                  </span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   <span>Biaya Pengemudi:</span>
-                  <span>Rp. {formatRupiah(routeDetails.costs?.driverCost || 0)}</span>
+                  <span>
+                    Rp. {formatRupiah(routeDetails.costs?.driverCost || 0)}
+                  </span>
                 </div>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginTop: '0.75rem',
-                  paddingTop: '0.75rem',
-                  borderTop: '1px solid var(--border)',
-                  fontWeight: 'bold'
-                }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "0.75rem",
+                    paddingTop: "0.75rem",
+                    borderTop: "1px solid var(--border)",
+                    fontWeight: "bold",
+                  }}
+                >
                   <span>Total Biaya:</span>
-                  <span>Rp. {formatRupiah(routeDetails.costs?.totalCost || 0)}</span>
+                  <span>
+                    Rp. {formatRupiah(routeDetails.costs?.totalCost || 0)}
+                  </span>
                 </div>
               </div>
 
               {routeDetails.steps && (
                 <div className="route-details">
-                  <h3 style={{ marginTop: '1.5rem', marginBottom: '0.75rem' }}>Petunjuk Rute:</h3>
+                  <h3 style={{ marginTop: "1.5rem", marginBottom: "0.75rem" }}>
+                    Petunjuk Rute:
+                  </h3>
                   {routeDetails.steps.map((step, index) => (
                     <div className="route-step" key={index}>
                       <div className="route-step-icon">
@@ -493,7 +633,9 @@ function App() {
                 </div>
               )}
 
-              <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem' }}>
+              <div
+                style={{ marginTop: "1.5rem", display: "flex", gap: "1rem" }}
+              >
                 <button>
                   <FontAwesomeIcon icon={faEdit} className="mr-2" />
                   Cetak Rute
@@ -527,7 +669,10 @@ function App() {
             </thead>
             <tbody>
               {shipmentData.map((shipment) => (
-                <tr key={shipment.id} onClick={() => handleRowClick(shipment.id)}>
+                <tr
+                  key={shipment.id}
+                  onClick={() => handleRowClick(shipment.id)}
+                >
                   <td>{shipment.id}</td>
                   <td>{shipment.origin}</td>
                   <td>{shipment.destination}</td>
@@ -602,7 +747,9 @@ function App() {
         <div className="container flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
             <FontAwesomeIcon icon={faTruck} className="text-primary mr-2" />
-            <span className="text-lg font-semibold text-primary">Transport Management System</span>
+            <span className="text-lg font-semibold text-primary">
+              Transport Management System
+            </span>
           </div>
           <div className="text-slate-500 text-sm">
             &copy; 2025 Transport Management System.
@@ -616,99 +763,99 @@ function App() {
 // Sample data for shipments
 const shipmentData = [
   {
-    id: '#TMS-5842',
-    origin: 'Jakarta',
-    destination: 'Surabaya',
-    customer: 'PT Maju Bersama',
-    status: 'Dalam Perjalanan',
-    statusClass: 'in-transit',
-    estimatedDelivery: '26 Feb 2025'
+    id: "#TMS-5842",
+    origin: "Jakarta",
+    destination: "Surabaya",
+    customer: "PT Maju Bersama",
+    status: "Dalam Perjalanan",
+    statusClass: "in-transit",
+    estimatedDelivery: "26 Feb 2025",
   },
   {
-    id: '#TMS-5841',
-    origin: 'Surabaya',
-    destination: 'Malang',
-    customer: 'CV Global Niaga',
-    status: 'Terkirim',
-    statusClass: 'delivered',
-    estimatedDelivery: '25 Feb 2025'
+    id: "#TMS-5841",
+    origin: "Surabaya",
+    destination: "Malang",
+    customer: "CV Global Niaga",
+    status: "Terkirim",
+    statusClass: "delivered",
+    estimatedDelivery: "25 Feb 2025",
   },
   {
-    id: '#TMS-5840',
-    origin: 'Medan',
-    destination: 'Palembang',
-    customer: 'PT Sistem Teknologi',
-    status: 'Menunggu',
-    statusClass: 'pending',
-    estimatedDelivery: '27 Feb 2025'
+    id: "#TMS-5840",
+    origin: "Medan",
+    destination: "Palembang",
+    customer: "PT Sistem Teknologi",
+    status: "Menunggu",
+    statusClass: "pending",
+    estimatedDelivery: "27 Feb 2025",
   },
   {
-    id: '#TMS-5839',
-    origin: 'Jakarta',
-    destination: 'Yogyakarta',
-    customer: 'PT Logistik Timur',
-    status: 'Dalam Perjalanan',
-    statusClass: 'in-transit',
-    estimatedDelivery: '26 Feb 2025'
+    id: "#TMS-5839",
+    origin: "Jakarta",
+    destination: "Yogyakarta",
+    customer: "PT Logistik Timur",
+    status: "Dalam Perjalanan",
+    statusClass: "in-transit",
+    estimatedDelivery: "26 Feb 2025",
   },
   {
-    id: '#TMS-5838',
-    origin: 'Bandung',
-    destination: 'Surabaya',
-    customer: 'CV Bali Cargo',
-    status: 'Terkirim',
-    statusClass: 'delivered',
-    estimatedDelivery: '24 Feb 2025'
-  }
+    id: "#TMS-5838",
+    origin: "Bandung",
+    destination: "Surabaya",
+    customer: "CV Bali Cargo",
+    status: "Terkirim",
+    statusClass: "delivered",
+    estimatedDelivery: "24 Feb 2025",
+  },
 ];
 
 // Sample data for drivers
 const driverData = [
   {
-    id: '#D-342',
-    name: 'Budi Santoso',
-    vehicle: 'Truk #T-102',
-    location: 'Bandung',
-    status: 'Bertugas',
-    statusClass: 'in-transit',
-    nextAvailable: '27 Feb 2025'
+    id: "#D-342",
+    name: "Budi Santoso",
+    vehicle: "Truk #T-102",
+    location: "Bandung",
+    status: "Bertugas",
+    statusClass: "in-transit",
+    nextAvailable: "27 Feb 2025",
   },
   {
-    id: '#D-285',
-    name: 'Siti Rahma',
-    vehicle: 'Van #V-054',
-    location: 'Jakarta',
-    status: 'Tersedia',
-    statusClass: 'delivered',
-    nextAvailable: 'Sekarang'
+    id: "#D-285",
+    name: "Siti Rahma",
+    vehicle: "Van #V-054",
+    location: "Jakarta",
+    status: "Tersedia",
+    statusClass: "delivered",
+    nextAvailable: "Sekarang",
   },
   {
-    id: '#D-198',
-    name: 'Agus Wijaya',
-    vehicle: 'Truk #T-088',
-    location: 'Surabaya',
-    status: 'Tidak Bertugas',
-    statusClass: 'pending',
-    nextAvailable: '26 Feb 2025'
+    id: "#D-198",
+    name: "Agus Wijaya",
+    vehicle: "Truk #T-088",
+    location: "Surabaya",
+    status: "Tidak Bertugas",
+    statusClass: "pending",
+    nextAvailable: "26 Feb 2025",
   },
   {
-    id: '#D-421',
-    name: 'Dewi Lestari',
-    vehicle: 'Van #V-032',
-    location: 'Medan',
-    status: 'Bertugas',
-    statusClass: 'in-transit',
-    nextAvailable: '28 Feb 2025'
+    id: "#D-421",
+    name: "Dewi Lestari",
+    vehicle: "Van #V-032",
+    location: "Medan",
+    status: "Bertugas",
+    statusClass: "in-transit",
+    nextAvailable: "28 Feb 2025",
   },
   {
-    id: '#D-367',
-    name: 'Rudi Hermawan',
-    vehicle: 'Truk #T-115',
-    location: 'Yogyakarta',
-    status: 'Tersedia',
-    statusClass: 'delivered',
-    nextAvailable: 'Sekarang'
-  }
+    id: "#D-367",
+    name: "Rudi Hermawan",
+    vehicle: "Truk #T-115",
+    location: "Yogyakarta",
+    status: "Tersedia",
+    statusClass: "delivered",
+    nextAvailable: "Sekarang",
+  },
 ];
 
 export default App;

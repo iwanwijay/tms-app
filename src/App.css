@@ -393,18 +393,19 @@ tr:hover {
 .search-select-container {
   position: relative;
   width: 100%;
-  z-index: 99999;
   /* max-width: 20rem; */
 }
 
 /* Search input styling */
 .search-input {
+  position: relative;
   width: 100%;
   padding: 0.5rem; /* Equivalent to p-2 */
   border: 1px solid #d1d5db; /* Equivalent to border border-gray-300 */
   border-radius: 0.25rem; /* Equivalent to rounded */
   background-color: #fff;
   color: #000;
+  z-index: 99999;
 }
 
 .search-input:focus {
@@ -422,6 +423,7 @@ tr:hover {
   align-items: center;
   padding-right: 0.5rem; /* Equivalent to pr-2 */
   pointer-events: none;
+  z-index: 9999999;
 }
 
 /* Dropdown arrow */
@@ -448,10 +450,12 @@ tr:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
   max-height: 15rem; /* Equivalent to max-h-60 */
   overflow: auto;
+  z-index: 999999999;
 }
 
 /* Dropdown option */
 .dropdown-option {
+  position: relative;
   padding: 0.5rem 1rem; /* Equivalent to px-4 py-2 */
   cursor: pointer;
 }

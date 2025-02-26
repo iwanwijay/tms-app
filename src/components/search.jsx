@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 // import './search-select.css'; // Import the CSS file
 
-const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
+const SearchSelect = ({ options, placeholder = "Search...", onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [filteredOptions, setFilteredOptions] = useState([]);
   const wrapperRef = useRef(null);
@@ -12,9 +12,11 @@ const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
   useEffect(() => {
     if (!options) return;
 
-    const filtered = options.filter(option =>
-      option.store_code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      option.store_name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = options.filter(
+      (option) =>
+        option.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        option.store_code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        option.store_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredOptions(filtered);
   }, [searchTerm, options]);
@@ -27,9 +29,9 @@ const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -63,13 +65,18 @@ const SearchSelect = ({ options, placeholder = 'Search...', onChange }) => {
         />
         <div className="dropdown-arrow-container">
           <svg
-            className={`dropdown-arrow ${isOpen ? 'open' : ''}`}
+            className={`dropdown-arrow ${isOpen ? "open" : ""}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            />
           </svg>
         </div>
       </div>
