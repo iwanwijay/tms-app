@@ -30,6 +30,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import districts from "./districts.json";
 import Search from "./components/search";
+import WaypointTracking from "./components/waypointTracking";
 
 function App() {
   const [waypoints, setWaypoints] = useState([""]);
@@ -111,15 +112,17 @@ function App() {
         tollCost: Math.round(routeData.costs.tollCost * costMultiplier),
         totalCost: Math.round(
           routeData.costs.fuelCost * costMultiplier +
-            routeData.costs.maintenanceCost * costMultiplier +
-            routeData.costs.tollCost * costMultiplier +
-            routeData.costs.driverCost
+          routeData.costs.maintenanceCost * costMultiplier +
+          routeData.costs.tollCost * costMultiplier +
+          routeData.costs.driverCost
         ),
       };
 
+      const mappedWaypoints = routeData.waypoints.map((waypoint) => districts[waypoint] || {});
       setRouteDetails({
         ...routeData,
         costs: adjustedCosts,
+        mappedWaypoints: mappedWaypoints,
       });
       setShowRouteResults(false);
       setShowDetails(true);
@@ -397,6 +400,7 @@ function App() {
               waypoints={showRouteResults ? waypoints.filter((wp) => wp) : []}
               onRouteCalculated={handleRouteCalculated}
             />
+            {routeDetails && <WaypointTracking waypoints={routeDetails.mappedWaypoints} />}
           </div>
 
           {(showRouteResults || showDetails) && routeDetails && (

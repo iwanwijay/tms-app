@@ -1,0 +1,81 @@
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.actual-route {
+  justify-content: flex-start;
+  /* Aligns completed checkpoints to the left */
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+}
+
+.no-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 0px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+}
+
+.completed {
+  background-color: green;
+  color: white;
+}
+
+.arrow {
+  font-size: 24px;
+  display: block;
+}
+
+.no-arrow {
+  font-size: 24px;
+  color: white;
+  display: block;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.submit-btn:hover {
+  background-color: darkblue;
+}
+
+.waiting {
+  color: gray;
+}
