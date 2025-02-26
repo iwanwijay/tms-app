@@ -485,7 +485,7 @@ function App() {
               {routeDetails.legs && (
                 <div className="route-legs" style={{ marginBottom: "1.5rem" }}>
                   <h3 style={{ marginBottom: "0.75rem", fontWeight: "bold" }}>
-                    Detail Perjalan
+                    Detail Perjalanan
                   </h3>
                   <div
                     className="legs-container"
@@ -520,7 +520,7 @@ function App() {
                             style={{ color: "var(--primary)" }}
                           />
                           <span style={{ fontWeight: "bold" }}>
-                            {leg.from} ke {leg.to}
+                          {routeDetails.mappedWaypoints[index].store_name} ke {routeDetails.mappedWaypoints[index + 1].store_name}
                           </span>
                         </div>
                         <div
