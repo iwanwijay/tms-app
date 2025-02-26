@@ -12,6 +12,7 @@ import {
   faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons';
 import districts from './districts.json';
+import Search from './components/search';
 
 function App() {
   const [waypoints, setWaypoints] = useState(['']);
@@ -36,6 +37,11 @@ function App() {
       store_code: value.store_code,
       store_name: value.store_name
     }));
+  const mappingDistricts = indonesianCities.map((d) => ({
+    ...d,
+    label: d.name,
+    value: d.name,
+  }));
 
   // Add another waypoint field
   const addWaypoint = () => {
@@ -130,6 +136,10 @@ function App() {
   const formatRupiah = (number) => {
     return new Intl.NumberFormat('id-ID').format(number);
   };
+
+  const handleChange = (district) => {
+    console.log("selected district => ", district);
+  }
 
   return (
     <div className="app">
@@ -257,29 +267,26 @@ function App() {
           <div style={{ marginBottom: '1.5rem' }}>
             <div className="multi-stop-form">
               {waypoints.map((waypoint, index) => (
-                <div key={index} className="waypoint-row" style={{
-                  display: 'flex',
-                  gap: '0.5rem',
-                  marginBottom: '0.75rem',
-                  alignItems: 'flex-end'
+                <div key={index} className="waypoint-row" style={{ 
+                  display: 'flex', 
+                  gap: '0.5rem', 
+                  alignItems: 'center'
                 }}>
                   <div style={{ flex: 1 }}>
                     <label htmlFor={`waypoint-${index}`} className="block text-sm font-medium text-slate-700 mb-1">
                       {index === 0 ? 'Start point' : index === waypoints.length - 1 ? 'End point' : `Stop ${index}`}
                     </label>
-                    <select
-                      id={`waypoint-${index}`}
-                      className="form-control w-full"
-                      value={waypoint}
-                      onChange={(e) => updateWaypoint(index, e.target.value)}
-                    >
-                      <option value="">Choose location</option>
-                      {indonesianCities.map((city, index) => (
-                        <option key={`${index}-${city.store_code}`} value={city.store_code}>
-                          {city.store_code} - {city.store_name}
-                        </option>
-                      ))}
-                    </select>
+
+                    <div>
+                      <div style={{ marginBottom: '1rem' }}>
+                        <Search
+                          id={`waypoint-${index}`} 
+                          options={mappingDistricts} 
+                          placeholder="Select district..."
+                          onChange={(e) => updateWaypoint(index, e.value)} 
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Remove button - only show for intermediate waypoints when there are more than 2 waypoints */}

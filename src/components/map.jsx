@@ -43,31 +43,6 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
   const [routeLayer, setRouteLayer] = useState(null);
   const [markers, setMarkers] = useState([]);
   const [error, setError] = useState(null);
-
-  // Indonesian cities coordinates
-  // const cityCoordinates = {
-  //   jakarta: { lat: -6.2088, lng: 106.8456 },
-  //   surabaya: { lat: -7.2575, lng: 112.7521 },
-  //   bandung: { lat: -6.9175, lng: 107.6191 },
-  //   medan: { lat: 3.5952, lng: 98.6722 },
-  //   makassar: { lat: -5.1477, lng: 119.4327 },
-  //   semarang: { lat: -7.0051, lng: 110.4381 },
-  //   palembang: { lat: -2.9761, lng: 104.7754 },
-  //   yogyakarta: { lat: -7.7956, lng: 110.3695 },
-  //   denpasar: { lat: -8.6705, lng: 115.2126 },
-  //   balikpapan: { lat: -1.2379, lng: 116.8529 },
-  //   // Additional cities for more detailed routes
-  //   malang: { lat: -7.9797, lng: 112.6304 },
-  //   solo: { lat: -7.5655, lng: 110.8268 },
-  //   cirebon: { lat: -6.7056, lng: 108.5569 },
-  //   purwokerto: { lat: -7.4200, lng: 109.2300 },
-  //   tasikmalaya: { lat: -7.3274, lng: 108.2207 },
-  //   pekalongan: { lat: -6.8828, lng: 109.6708 },
-  //   magelang: { lat: -7.4797, lng: 110.2177 },
-  //   jember: { lat: -8.1727, lng: 113.7020 },
-  //   kediri: { lat: -7.8480, lng: 112.0178 },
-  //   probolinggo: { lat: -7.7560, lng: 113.2120 }
-  // };
   const cityCoordinates = districts;
 
   // Default values for generating costs
