@@ -45,7 +45,6 @@ const RouteDelivery = () => {
 
   useEffect(() => {
     if (planners_data[planId]) {
-      console.log(planners_data[planId][0].waypoints);
       if (
         planners_data?.[planId]?.[0]?.waypoints &&
         Array.isArray(planners_data[planId][0].waypoints) &&

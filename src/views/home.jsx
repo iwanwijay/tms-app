@@ -134,7 +134,6 @@ const Home = () => {
   };
 
   const handleExecute = (idx) => {
-    console.log(planners_data[idx]);
     navigate({
       pathname: "/route",
       search: `?id=${idx}`,
