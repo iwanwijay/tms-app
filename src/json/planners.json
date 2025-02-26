@@ -1,0 +1,121 @@
+[
+  [
+    {
+      "id": "#P-123",
+      "carrier": "JNE",
+      "drop_type": "Multi Drop",
+      "vehicle": "CDD",
+      "qty_vehicle": "1",
+      "price_text": "Rp. 1.000.000",
+      "price": 1000000,
+      "route": "CK1-SLP-SGC-SGI-SKG",
+      "sla": "2",
+      "total_vehicle": 1,
+      "total_price_text": "Rp. 1.000.000",
+      "status": "unassigned",
+      "statusClass": "pending",
+      "total_price": 1000000,
+      "waypoints": ["CIKUPA", "KEMBANGAN", "KEBAYORAN LAMA", "MENTENG", "KELAPA GADING"]
+    }
+  ],
+  [
+    {
+      "id": "#P-234",
+      "carrier": "Wahana",
+      "drop_type": "Multi Drop",
+      "vehicle": "CDE",
+      "qty_vehicle": "1",
+      "price_text": "Rp. 750.000",
+      "price": 750000,
+      "route": "CK1-SLP-SGC",
+      "sla": "1",
+      "total_vehicle": 1,
+      "total_price_text": "Rp. 750.000",
+      "status": "assigned",
+      "statusClass": "delivered",
+      "total_price": 750000
+    },
+    {
+      "id": "#P-345",
+      "carrier": "JNE",
+      "drop_type": "Multi Drop",
+      "vehicle": "CDE",
+      "qty_vehicle": "1",
+      "price_text": "Rp. 700.000",
+      "price": 700000,
+      "route": "CK1-SLP-SGC",
+      "sla": "2",
+      "total_vehicle": 1,
+      "total_price_text": "Rp. 700.000",
+      "status": "assigned",
+      "statusClass": "delivered",
+      "total_price": 700000
+    }
+  ],
+  [
+    {
+      "id": "#P-456",
+      "carrier": "Wahana",
+      "drop_type": "Single Drop",
+      "vehicle": "CDE",
+      "qty_vehicle": "1",
+      "price_text": "Rp. 450.000",
+      "price": 450000,
+      "route": "CK1-SLP-SGC",
+      "sla": "1",
+      "total_vehicle": 1,
+      "total_price_text": "Rp. 450.000",
+      "status": "assigned",
+      "statusClass": "delivered",
+      "total_price": 450000
+    },
+    {
+      "id": "#P-567",
+      "carrier": "Wahana",
+      "drop_type": "Single Drop",
+      "vehicle": "CDE",
+      "qty_vehicle": "1",
+      "price_text": "Rp. 700.000",
+      "price": 450000,
+      "route": "CK1-SLP-SGC",
+      "sla": "2",
+      "total_vehicle": 1,
+      "total_price_text": "Rp. 700.000",
+      "status": "assigned",
+      "statusClass": "delivered",
+      "total_price": 450000
+    },
+    {
+        "id": "#P-678",
+        "carrier": "Wahana",
+        "drop_type": "Single Drop",
+        "vehicle": "CDE",
+        "qty_vehicle": "1",
+        "price_text": "Rp. 450.000",
+        "price": 450000,
+        "route": "CK1-SLP-SGC",
+        "sla": "2",
+        "total_vehicle": 1,
+        "total_price_text": "Rp. 450.000",
+        "status": "assigned",
+        "statusClass": "delivered",
+        "total_price": 450000
+      },
+      {
+        "id": "#P-789",
+        "carrier": "JNE",
+        "drop_type": "Single Drop",
+        "vehicle": "CDE",
+        "qty_vehicle": "1",
+        "price_text": "Rp. 500.000",
+        "price": 500000,
+        "route": "CK1-SLP-SGC",
+        "sla": "2",
+        "total_vehicle": 1,
+        "total_price_text": "Rp. 500.000",
+        "status": "assigned",
+        "statusClass": "delivered",
+        "total_price": 500000
+      }
+  ]
+]

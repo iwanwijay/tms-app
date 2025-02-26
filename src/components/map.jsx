@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import districts from "../districts.json";
+import districts from "../json/districts.json";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -554,7 +554,7 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
 
         const hours = Math.floor(totalDurationSec / 3600);
         const minutes = Math.floor((totalDurationSec % 3600) / 60);
-        const durationStr = `${hours} jam ${minutes} menit`;
+        const durationStr = `${hours} ${hours > 1 ? "hours": "hour"} ${minutes} ${minutes > 1 ? "minutes": "minute"}`;
 
         // Process detailed steps with city names
         const processedSteps = processMultiStopOSRMSteps(
@@ -679,7 +679,7 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
               boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
             }}
           >
-            Memuat rute...
+            Loading...
           </div>
         </div>
       )}
