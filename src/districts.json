@@ -2639,7 +2639,11 @@
     "lat": null,
     "lng": null
   },
-  "ONOLALU": { "long_name": "ONOLALU", "lat": null, "lng": null },
+  "ONOLALU": {
+    "long_name": "ONOLALU",
+    "lat": null,
+    "lng": null
+  },
   "AMANDRAYA": {
     "long_name": "Amandraya, South Nias Regency, North Sumatra, Indonesia",
     "lat": 0.68062,
@@ -2695,7 +2699,11 @@
     "lat": 1.16559,
     "lng": 97.66838
   },
-  "ULUIDANOTAE": { "long_name": "ULUIDANOTAE", "lat": null, "lng": null },
+  "ULUIDANOTAE": {
+    "long_name": "ULUIDANOTAE",
+    "lat": null,
+    "lng": null
+  },
   "BORONADU": {
     "long_name": "Boronadu, Kabupaten Nias Selatan, Sumatera Utara, Indonesia",
     "lat": 0.86903,
@@ -4691,7 +4699,11 @@
     "lat": 0.27322,
     "lng": 103.33563
   },
-  "PULAU BURUNG": { "long_name": "PULAU BURUNG", "lat": null, "lng": null },
+  "PULAU BURUNG": {
+    "long_name": "PULAU BURUNG",
+    "lat": null,
+    "lng": null
+  },
   "LANGGAM": {
     "long_name": "Langgam, Kabupaten Pelalawan, Riau, Indonesia",
     "lat": 0.24468,
@@ -5162,7 +5174,11 @@
     "lat": 1.10903,
     "lng": 102.539
   },
-  "PULAU MERBAU": { "long_name": "PULAU MERBAU", "lat": null, "lng": null },
+  "PULAU MERBAU": {
+    "long_name": "PULAU MERBAU",
+    "lat": null,
+    "lng": null
+  },
   "PUTRI PUYU": {
     "long_name": "Tasik Putri Puyu, Kabupaten Kepulauan Meranti, Riau, Indonesia",
     "lat": 1.20258,
@@ -5253,8 +5269,16 @@
     "lat": 1.66663,
     "lng": 101.40019
   },
-  "GUNUNG RAYA": { "long_name": "GUNUNG RAYA", "lat": null, "lng": null },
-  "BUKIT KERMAN": { "long_name": "BUKIT KERMAN", "lat": null, "lng": null },
+  "GUNUNG RAYA": {
+    "long_name": "GUNUNG RAYA",
+    "lat": null,
+    "lng": null
+  },
+  "BUKIT KERMAN": {
+    "long_name": "BUKIT KERMAN",
+    "lat": null,
+    "lng": null
+  },
   "BATANG MERANGIN": {
     "long_name": "Batang Merangin, Kerinci Regency, Jambi, Indonesia",
     "lat": -2.13929,
@@ -6165,7 +6189,11 @@
     "lat": -3.34079,
     "lng": 104.46068
   },
-  "BELIDA DARAT": { "long_name": "BELIDA DARAT", "lat": null, "lng": null },
+  "BELIDA DARAT": {
+    "long_name": "BELIDA DARAT",
+    "lat": null,
+    "lng": null
+  },
   "TANJUNG SAKTI PUMI": {
     "long_name": "Tanjung Sakti Pumi, Lahat Regency, South Sumatra, Indonesia",
     "lat": -4.14345,
@@ -7196,7 +7224,11 @@
     "lat": -3.51113,
     "lng": 102.15184
   },
-  "HULU PALIK": { "long_name": "HULU PALIK", "lat": null, "lng": null },
+  "HULU PALIK": {
+    "long_name": "HULU PALIK",
+    "lat": null,
+    "lng": null
+  },
   "TANJUNG AGUNG PALIK": {
     "long_name": "TANJUNG AGUNG PALIK",
     "lat": null,
@@ -7407,7 +7439,11 @@
     "lat": -3.87289,
     "lng": 102.55275
   },
-  "IPUH": { "long_name": "Ipuh, Indonesia", "lat": -2.9714, "lng": 101.4417 },
+  "IPUH": {
+    "long_name": "Ipuh, Indonesia",
+    "lat": -2.9714,
+    "lng": 101.4417
+  },
   "AIR RAMI": {
     "long_name": "Air Rami, Mukomuko Regency, Bengkulu, Indonesia",
     "lat": -3.04383,
@@ -7733,7 +7769,11 @@
     "lat": -5.11255,
     "lng": 104.46068
   },
-  "KEBUN TEBU": { "long_name": "KEBUN TEBU", "lat": null, "lng": null },
+  "KEBUN TEBU": {
+    "long_name": "KEBUN TEBU",
+    "lat": null,
+    "lng": null
+  },
   "WONOSOBO": {
     "long_name": "Wonosobo, Wonosobo Sub-District, Wonosobo Regency, Central Java, Indonesia",
     "lat": -7.35558,
@@ -7814,7 +7854,11 @@
     "lat": -5.7279,
     "lng": 105.06743
   },
-  "LIMAU": { "long_name": "LIMAU", "lat": null, "lng": null },
+  "LIMAU": {
+    "long_name": "LIMAU",
+    "lat": null,
+    "lng": null
+  },
   "KELUMBAYAN BARAT": {
     "long_name": "West Kelumbayan, Tanggamus Regency, Lampung, Indonesia",
     "lat": -5.64751,
@@ -8415,7 +8459,11 @@
     "lat": -5.78076,
     "lng": 105.19023
   },
-  "MARGA PUNDUH": { "long_name": "MARGA PUNDUH", "lat": null, "lng": null },
+  "MARGA PUNDUH": {
+    "long_name": "MARGA PUNDUH",
+    "lat": null,
+    "lng": null
+  },
   "PADANG CERMIN": {
     "long_name": "Padang Cermin, Pesawaran Regency, Lampung, Indonesia",
     "lat": -5.60428,
@@ -8576,7 +8624,11 @@
     "lat": -5.04076,
     "lng": 103.81583
   },
-  "PULAU PISANG": { "long_name": "PULAU PISANG", "lat": null, "lng": null },
+  "PULAU PISANG": {
+    "long_name": "PULAU PISANG",
+    "lat": null,
+    "lng": null
+  },
   "KARYA PENGGAWA": {
     "long_name": "Karya Penggawa, West Lampung Regency, Lampung, Indonesia",
     "lat": -5.10428,
@@ -8637,7 +8689,11 @@
     "lat": -5.44349,
     "lng": 105.28531
   },
-  "PANJANG": { "long_name": "PANJANG", "lat": null, "lng": null },
+  "PANJANG": {
+    "long_name": "PANJANG",
+    "lat": null,
+    "lng": null
+  },
   "TANJUNG KARANG TIMUR": {
     "long_name": "East Tanjung Karang, Bandar Lampung City, Lampung, Indonesia",
     "lat": -5.41122,
@@ -8853,7 +8909,11 @@
     "lat": -2.27886,
     "lng": 106.07577
   },
-  "PULAU BESAR": { "long_name": "PULAU BESAR", "lat": null, "lng": null },
+  "PULAU BESAR": {
+    "long_name": "PULAU BESAR",
+    "lat": null,
+    "lng": null
+  },
   "SIMPANG RIMBA": {
     "long_name": "Simpang Rimba, South Bangka Regency, Bangka Belitung Islands, Indonesia",
     "lat": -2.55557,
@@ -9074,7 +9134,11 @@
     "lat": 3.98567,
     "lng": 108.09544
   },
-  "PULAU LAUT": { "long_name": "PULAU LAUT", "lat": null, "lng": null },
+  "PULAU LAUT": {
+    "long_name": "PULAU LAUT",
+    "lat": null,
+    "lng": null
+  },
   "PULAU TIGA": {
     "long_name": "Pulau Tiga, Nusa Tenggara Bar., Indonesia",
     "lat": -8.85553,
@@ -9303,7 +9367,9 @@
   "KEBAYORAN LAMA": {
     "long_name": "Kebayoran Lama, South Jakarta City, Special Capital Region of Jakarta, Indonesia",
     "lat": -6.24439,
-    "lng": 106.77654
+    "lng": 106.77654,
+    "store_code": "SGC",
+    "store_name": "Sociolla Gandaria City"
   },
   "KEBAYORAN BARU": {
     "long_name": "Kebayoran Baru, South Jakarta City, Special Capital Region of Jakarta, Indonesia",
@@ -9383,7 +9449,9 @@
   "MENTENG": {
     "long_name": "Menteng, Central Jakarta City, Special Capital Region of Jakarta, Indonesia",
     "lat": -6.19403,
-    "lng": 106.83259
+    "lng": 106.83259,
+    "store_code": "SGI",
+    "store_name": "Sociolla Grand Indonesia"
   },
   "SENEN": {
     "long_name": "Senen, Central Jakarta City, Special Capital Region of Jakarta, Indonesia",
@@ -9418,7 +9486,9 @@
   "KEMBANGAN": {
     "long_name": "Kembangan, West Jakarta City, Special Capital Region of Jakarta, Indonesia",
     "lat": -6.19123,
-    "lng": 106.74232
+    "lng": 106.74232,
+    "store_code": "SLP",
+    "store_name": "Sociolla Lippo Mall Puri"
   },
   "KEBON JERUK": {
     "long_name": "Kebon Jeruk, West Jakarta City, Special Capital Region of Jakarta, Indonesia",
@@ -9473,7 +9543,9 @@
   "KELAPA GADING": {
     "long_name": "Kelapa Gading, North Jakarta City, Special Capital Region of Jakarta, Indonesia",
     "lat": -6.16045,
-    "lng": 106.90546
+    "lng": 106.90546,
+    "store_code": "SKG",
+    "store_name": "Sociolla Kelapa Gading"
   },
   "CILINCING": {
     "long_name": "Cilincing, North Jakarta City, Special Capital Region of Jakarta, Indonesia",
@@ -13355,7 +13427,11 @@
     "lat": -6.16086,
     "lng": 106.79277
   },
-  "BAKI": { "long_name": "Bali, Indonesia", "lat": -8.40952, "lng": 115.18892 },
+  "BAKI": {
+    "long_name": "Bali, Indonesia",
+    "lat": -8.40952,
+    "lng": 115.18892
+  },
   "GATAK": {
     "long_name": "Gatak, Sukoharjo Regency, Central Java, Indonesia",
     "lat": -7.58745,
@@ -13951,7 +14027,11 @@
     "lat": -6.61349,
     "lng": 111.05796
   },
-  "GUNUNG WUNGKAL": { "long_name": "GUNUNG WUNGKAL", "lat": null, "lng": null },
+  "GUNUNG WUNGKAL": {
+    "long_name": "GUNUNG WUNGKAL",
+    "lat": null,
+    "lng": null
+  },
   "CLUWAK": {
     "long_name": "Cluwak, Pati Regency, Central Java, Indonesia",
     "lat": -6.53823,
@@ -18347,7 +18427,11 @@
     "lat": -6.50799,
     "lng": 106.08753
   },
-  "GUNUNG KENCANA": { "long_name": "GUNUNG KENCANA", "lat": null, "lng": null },
+  "GUNUNG KENCANA": {
+    "long_name": "GUNUNG KENCANA",
+    "lat": null,
+    "lng": null
+  },
   "BOJONGMANIK": {
     "long_name": "Bojongmanik, Lebak Regency, Banten, Indonesia",
     "lat": -6.57742,
@@ -18431,7 +18515,9 @@
   "CIKUPA": {
     "long_name": "Cikupa, Tangerang, Banten, Indonesia",
     "lat": -6.21677,
-    "lng": 106.52305
+    "lng": 106.52305,
+    "store_code": "CK1",
+    "store_name": "Cikupa Warehouse"
   },
   "PANONGAN": {
     "long_name": "Panongan, Tangerang, Banten, Indonesia",
@@ -18803,7 +18889,11 @@
     "lat": -8.23008,
     "lng": 114.54802
   },
-  "NEGARA": { "long_name": "Indonesia", "lat": -0.78927, "lng": 113.92133 },
+  "NEGARA": {
+    "long_name": "Indonesia",
+    "lat": -0.78927,
+    "lng": 113.92133
+  },
   "JEMBRANA": {
     "long_name": "Jembrana, Jembrana Sub-District, Jembrana Regency, Bali, Indonesia",
     "lat": -8.36095,
@@ -20549,7 +20639,11 @@
     "lat": -8.75721,
     "lng": 121.46847
   },
-  "PULAU ENDE": { "long_name": "PULAU ENDE", "lat": null, "lng": null },
+  "PULAU ENDE": {
+    "long_name": "PULAU ENDE",
+    "lat": null,
+    "lng": null
+  },
   "MAUKARO": {
     "long_name": "Maukaro, Ende Regency, East Nusa Tenggara, Indonesia",
     "lat": -8.63322,
@@ -21790,7 +21884,11 @@
     "lat": 0.52568,
     "lng": 111.14142
   },
-  "SOKAN": { "long_name": "Sokan, Indonesia", "lat": 2.15815, "lng": 117.7052 },
+  "SOKAN": {
+    "long_name": "Sokan, Indonesia",
+    "lat": 2.15815,
+    "lng": 117.7052
+  },
   "TANAH PINOH": {
     "long_name": "Tanah Pinoh, Melawi Regency, West Kalimantan, Indonesia",
     "lat": -0.82464,
@@ -23891,7 +23989,11 @@
     "lat": 3.51915,
     "lng": 117.81942
   },
-  "MURUK RIAN": { "long_name": "MURUK RIAN", "lat": null, "lng": null },
+  "MURUK RIAN": {
+    "long_name": "MURUK RIAN",
+    "lat": null,
+    "lng": null
+  },
   "SESAYAP": {
     "long_name": "Sesayap, Tana Tidung Regency, North Kalimantan, Indonesia",
     "lat": 3.52284,
@@ -23942,7 +24044,11 @@
     "lat": 3.80246,
     "lng": 117.22058
   },
-  "SEBUKU": { "long_name": "SEBUKU", "lat": null, "lng": null },
+  "SEBUKU": {
+    "long_name": "SEBUKU",
+    "lat": null,
+    "lng": null
+  },
   "TULIN ONSOI": {
     "long_name": "Tulin Onsoi, Kabupaten Nunukan, Kalimantan Utara, Indonesia",
     "lat": 4.2537,
@@ -24023,7 +24129,11 @@
     "lat": 0.60018,
     "lng": 124.09755
   },
-  "DUMOGA TENGAH": { "long_name": "DUMOGA TENGAH", "lat": null, "lng": null },
+  "DUMOGA TENGAH": {
+    "long_name": "DUMOGA TENGAH",
+    "lat": null,
+    "lng": null
+  },
   "DUMOGA TENGGARA": {
     "long_name": "DUMOGA TENGGARA",
     "lat": null,
@@ -24744,7 +24854,11 @@
     "lat": 1.5135,
     "lng": 124.84862
   },
-  "BUNAKEN": { "long_name": "BUNAKEN", "lat": null, "lng": null },
+  "BUNAKEN": {
+    "long_name": "BUNAKEN",
+    "lat": null,
+    "lng": null
+  },
   "BUNAKEN KEPULAUAN": {
     "long_name": "Bunaken Kepulauan, Kota Manado, Sulawesi Utara, Indonesia",
     "lat": 1.63069,
@@ -24990,7 +25104,11 @@
     "lat": -0.80587,
     "lng": 123.19137
   },
-  "MANTOH": { "long_name": "MANTOH", "lat": null, "lng": null },
+  "MANTOH": {
+    "long_name": "MANTOH",
+    "lat": null,
+    "lng": null
+  },
   "BALANTAK": {
     "long_name": "Balantak, Banggai Regency, Central Sulawesi, Indonesia",
     "lat": -0.86811,
@@ -25456,7 +25574,11 @@
     "lat": -0.86798,
     "lng": 121.5858
   },
-  "RATOLINDO": { "long_name": "RATOLINDO", "lat": null, "lng": null },
+  "RATOLINDO": {
+    "long_name": "RATOLINDO",
+    "lat": null,
+    "lng": null
+  },
   "UNA - UNA": {
     "long_name": "Unauna Island, Lembanya, Una-Una, Tojo Una-Una Regency, Central Sulawesi, Indonesia",
     "lat": -0.1752,
@@ -25737,7 +25859,11 @@
     "lat": -5.91476,
     "lng": 120.50488
   },
-  "BUKI": { "long_name": "BUKI", "lat": null, "lng": null },
+  "BUKI": {
+    "long_name": "BUKI",
+    "lat": null,
+    "lng": null
+  },
   "GANTARANG": {
     "long_name": "Gantarang, Bulukumba Regency, South Sulawesi, Indonesia",
     "lat": -5.529,
@@ -26108,7 +26234,11 @@
     "lat": -6.85944,
     "lng": 119.11637
   },
-  "LIUKANG KALMAS": { "long_name": "LIUKANG KALMAS", "lat": null, "lng": null },
+  "LIUKANG KALMAS": {
+    "long_name": "LIUKANG KALMAS",
+    "lat": null,
+    "lng": null
+  },
   "LIUKANG TUPABBIRING": {
     "long_name": "Liukang Tupabbiring, Pangkajene Dan Kepulauan Regency, South Sulawesi, Indonesia",
     "lat": -4.70065,
@@ -28169,7 +28299,11 @@
     "lat": -5.48136,
     "lng": 122.59948
   },
-  "BATUPOARO": { "long_name": "BATUPOARO", "lat": null, "lng": null },
+  "BATUPOARO": {
+    "long_name": "BATUPOARO",
+    "lat": null,
+    "lng": null
+  },
   "WOLIO": {
     "long_name": "Wolio, Bau-Bau City, South East Sulawesi, Indonesia",
     "lat": -5.48346,
@@ -28385,7 +28519,11 @@
     "lat": 0.62198,
     "lng": 122.10647
   },
-  "TAPA": { "long_name": "TAPA", "lat": null, "lng": null },
+  "TAPA": {
+    "long_name": "TAPA",
+    "lat": null,
+    "lng": null
+  },
   "BULANGO UTARA": {
     "long_name": "North Bulango, Bone Bolango Regency, Gorontalo, Indonesia",
     "lat": 0.73463,
@@ -28481,7 +28619,11 @@
     "lat": 0.80834,
     "lng": 122.92123
   },
-  "TOMILITO": { "long_name": "TOMILITO", "lat": null, "lng": null },
+  "TOMILITO": {
+    "long_name": "TOMILITO",
+    "lat": null,
+    "lng": null
+  },
   "PONELO KEPULAUAN": {
     "long_name": "PONELO KEPULAUAN",
     "lat": null,
@@ -28647,7 +28789,11 @@
     "lat": -3.38912,
     "lng": 119.2697
   },
-  "B U L O": { "long_name": "Indonesia", "lat": -0.78927, "lng": 113.92133 },
+  "B U L O": {
+    "long_name": "Indonesia",
+    "lat": -0.78927,
+    "lng": 113.92133
+  },
   "POLEWALI": {
     "long_name": "Polewali, Mammi, Binuang, Kabupaten Polewali Mandar, Sulawesi Barat, Indonesia",
     "lat": -3.42736,
@@ -28958,7 +29104,11 @@
     "lat": -5.91612,
     "lng": 132.776
   },
-  "KEI BESAR": { "long_name": "KEI BESAR", "lat": null, "lng": null },
+  "KEI BESAR": {
+    "long_name": "KEI BESAR",
+    "lat": null,
+    "lng": null
+  },
   "KEI BESAR UTARA TIMUR": {
     "long_name": "North East Kei Besar, Sotheast Maluku Regency, Maluku, Indonesia",
     "lat": -5.45976,
@@ -29099,7 +29249,11 @@
     "lat": -3.48183,
     "lng": 126.99708
   },
-  "LOLONG GUBA": { "long_name": "LOLONG GUBA", "lat": null, "lng": null },
+  "LOLONG GUBA": {
+    "long_name": "LOLONG GUBA",
+    "lat": null,
+    "lng": null
+  },
   "LILIALY": {
     "long_name": "Lilialy, Kabupaten Buru, Maluku, Indonesia",
     "lat": -3.20405,
@@ -29110,7 +29264,11 @@
     "lat": -3.18253,
     "lng": 126.30646
   },
-  "FENA LEISELA": { "long_name": "FENA LEISELA", "lat": null, "lng": null },
+  "FENA LEISELA": {
+    "long_name": "FENA LEISELA",
+    "lat": null,
+    "lng": null
+  },
   "ARU SELATAN": {
     "long_name": "South Aru, Kepulauan Aru Regency, Maluku, Indonesia",
     "lat": -6.68337,
@@ -29236,7 +29394,11 @@
     "lat": -3.97971,
     "lng": 131.41121
   },
-  "PULAU PANJANG": { "long_name": "PULAU PANJANG", "lat": null, "lng": null },
+  "PULAU PANJANG": {
+    "long_name": "PULAU PANJANG",
+    "lat": null,
+    "lng": null
+  },
   "SERAM TIMUR": {
     "long_name": "East Seram, East Seram Bagian Regency, Maluku, Indonesia",
     "lat": -3.62495,
@@ -29267,7 +29429,11 @@
     "lat": -3.42333,
     "lng": 130.22713
   },
-  "SIWALALAT": { "long_name": "SIWALALAT", "lat": null, "lng": null },
+  "SIWALALAT": {
+    "long_name": "SIWALALAT",
+    "lat": null,
+    "lng": null
+  },
   "BULA": {
     "long_name": "Bula, Kabupaten Seram Bagian Timur, Maluku, Indonesia",
     "lat": -3.10968,
@@ -29378,7 +29544,11 @@
     "lat": -3.57956,
     "lng": 126.30646
   },
-  "FENA FAFAN": { "long_name": "FENA FAFAN", "lat": null, "lng": null },
+  "FENA FAFAN": {
+    "long_name": "FENA FAFAN",
+    "lat": null,
+    "lng": null
+  },
   "NAMROLE": {
     "long_name": "Namrole, South Buru Regency, Maluku, Indonesia",
     "lat": -3.69213,
@@ -29469,7 +29639,11 @@
     "lat": 1.35897,
     "lng": 127.59607
   },
-  "TABARU": { "long_name": "TABARU", "lat": null, "lng": null },
+  "TABARU": {
+    "long_name": "TABARU",
+    "lat": null,
+    "lng": null
+  },
   "LOLODA": {
     "long_name": "Loloda, West Halmahera Regency, North Maluku, Indonesia",
     "lat": 1.74511,
@@ -29570,7 +29744,11 @@
     "lat": -1.84145,
     "lng": 126.24139
   },
-  "MANGOLI BARAT": { "long_name": "MANGOLI BARAT", "lat": null, "lng": null },
+  "MANGOLI BARAT": {
+    "long_name": "MANGOLI BARAT",
+    "lat": null,
+    "lng": null
+  },
   "MANGOLI UTARA": {
     "long_name": "North Mangoli, Kepulauan Sula Regency, North Maluku, Indonesia",
     "lat": -1.85469,
@@ -30331,7 +30509,11 @@
     "lat": -1.97819,
     "lng": 132.4135
   },
-  "KAIS DARAT": { "long_name": "KAIS DARAT", "lat": null, "lng": null },
+  "KAIS DARAT": {
+    "long_name": "KAIS DARAT",
+    "lat": null,
+    "lng": null
+  },
   "MOSWAREN": {
     "long_name": "Moswaren, South Sorong Regency, West Papua, Indonesia",
     "lat": -1.51531,
@@ -30847,7 +31029,11 @@
     "lat": -0.88854,
     "lng": 131.203
   },
-  "MALADOMES": { "long_name": "MALADOMES", "lat": null, "lng": null },
+  "MALADOMES": {
+    "long_name": "MALADOMES",
+    "lat": null,
+    "lng": null
+  },
   "SORONG TIMUR": {
     "long_name": "East Sorong, Sorong City, West Papua, Indonesia",
     "lat": -0.89513,
@@ -30863,8 +31049,16 @@
     "lat": -0.89256,
     "lng": 131.30595
   },
-  "KLAURUNG": { "long_name": "KLAURUNG", "lat": null, "lng": null },
-  "MALAIMSIMSA": { "long_name": "MALAIMSIMSA", "lat": null, "lng": null },
+  "KLAURUNG": {
+    "long_name": "KLAURUNG",
+    "lat": null,
+    "lng": null
+  },
+  "MALAIMSIMSA": {
+    "long_name": "MALAIMSIMSA",
+    "lat": null,
+    "lng": null
+  },
   "SORONG KOTA": {
     "long_name": "Sorong, Sorong City, West Papua, Indonesia",
     "lat": -0.882,
@@ -30885,7 +31079,11 @@
     "lat": -7.63115,
     "lng": 138.31903
   },
-  "ILWAYAB": { "long_name": "ILWAYAB", "lat": null, "lng": null },
+  "ILWAYAB": {
+    "long_name": "ILWAYAB",
+    "lat": null,
+    "lng": null
+  },
   "OKABA": {
     "long_name": "Okaba, Iwol, Okaba, Kabupaten Merauke, Papua, Indonesia",
     "lat": -8.07233,
@@ -31086,7 +31284,11 @@
     "lat": -4.02727,
     "lng": 138.91525
   },
-  "LIBAREK": { "long_name": "LIBAREK", "lat": null, "lng": null },
+  "LIBAREK": {
+    "long_name": "LIBAREK",
+    "lat": null,
+    "lng": null
+  },
   "WADANGKU": {
     "long_name": "Wadangku, Kabupaten Jayawijaya, Papua, Indonesia",
     "lat": -3.92752,
@@ -31142,7 +31344,11 @@
     "lat": -8.36667,
     "lng": 124.1
   },
-  "ITLAY HASIGE": { "long_name": "ITLAY HASIGE", "lat": null, "lng": null },
+  "ITLAY HASIGE": {
+    "long_name": "ITLAY HASIGE",
+    "lat": null,
+    "lng": null
+  },
   "SIEPKOSI": {
     "long_name": "Siepkosi, Walelagama, Jayawijaya Regency, Papua, Indonesia",
     "lat": -4.07245,
@@ -31328,7 +31534,11 @@
     "lat": -1.83292,
     "lng": 136.65121
   },
-  "PANTURA YAPEN": { "long_name": "PANTURA YAPEN", "lat": null, "lng": null },
+  "PANTURA YAPEN": {
+    "long_name": "PANTURA YAPEN",
+    "lat": null,
+    "lng": null
+  },
   "TELUK AMPIMOI": {
     "long_name": "Teluk Ampimoi, Kepulauan Yapen Regency, Papua, Indonesia",
     "lat": -1.82943,
@@ -31349,8 +31559,16 @@
     "lat": -1.82477,
     "lng": 136.38167
   },
-  "KEP. AMBAI": { "long_name": "KEP. AMBAI", "lat": null, "lng": null },
-  "YAWAKUKAT": { "long_name": "YAWAKUKAT", "lat": null, "lng": null },
+  "KEP. AMBAI": {
+    "long_name": "KEP. AMBAI",
+    "lat": null,
+    "lng": null
+  },
+  "YAWAKUKAT": {
+    "long_name": "YAWAKUKAT",
+    "lat": null,
+    "lng": null
+  },
   "YAPEN SELATAN": {
     "long_name": "South Yapen, Kepulauan Yapen Regency, Papua, Indonesia",
     "lat": -1.82756,
@@ -31551,14 +31769,26 @@
     "lat": -1.61012,
     "lng": 103.61312
   },
-  "ILAMBURAWI": { "long_name": "ILAMBURAWI", "lat": null, "lng": null },
+  "ILAMBURAWI": {
+    "long_name": "ILAMBURAWI",
+    "lat": null,
+    "lng": null
+  },
   "PAGALEME": {
     "long_name": "Pagaleme, Mulia, Puncak Jaya Regency, Papua, Indonesia",
     "lat": -3.70769,
     "lng": 137.98865
   },
-  "GURAGE": { "long_name": "GURAGE", "lat": null, "lng": null },
-  "IRIMULI": { "long_name": "IRIMULI", "lat": null, "lng": null },
+  "GURAGE": {
+    "long_name": "GURAGE",
+    "lat": null,
+    "lng": null
+  },
+  "IRIMULI": {
+    "long_name": "IRIMULI",
+    "lat": null,
+    "lng": null
+  },
   "ILU": {
     "long_name": "Ilu, Puncak Jaya Regency, Papua, Indonesia",
     "lat": -3.75961,
@@ -31594,7 +31824,11 @@
     "lat": -3.65781,
     "lng": 138.23438
   },
-  "TAGANOMBAK": { "long_name": "TAGANOMBAK", "lat": null, "lng": null },
+  "TAGANOMBAK": {
+    "long_name": "TAGANOMBAK",
+    "lat": null,
+    "lng": null
+  },
   "TINGGINAMBUT": {
     "long_name": "Tingginambut, Puncak Jaya Regency, Papua, Indonesia",
     "lat": -3.72157,
@@ -31605,7 +31839,11 @@
     "lat": -3.71971,
     "lng": 138.09525
   },
-  "WANWI": { "long_name": "WANWI", "lat": null, "lng": null },
+  "WANWI": {
+    "long_name": "WANWI",
+    "lat": null,
+    "lng": null
+  },
   "MEWOLUK": {
     "long_name": "Mewoluk, Puncak Jaya Regency, Papua, Indonesia",
     "lat": -3.60298,
@@ -31616,7 +31854,11 @@
     "lat": -3.63649,
     "lng": 137.79337
   },
-  "MOLANIKIME": { "long_name": "MOLANIKIME", "lat": null, "lng": null },
+  "MOLANIKIME": {
+    "long_name": "MOLANIKIME",
+    "lat": null,
+    "lng": null
+  },
   "YAMO": {
     "long_name": "Yamo, Puncak Jaya Regency, Papua, Indonesia",
     "lat": -3.53137,
@@ -31687,7 +31929,11 @@
     "lat": -4.44987,
     "lng": 136.63193
   },
-  "KWAMKI NARAMA": { "long_name": "KWAMKI NARAMA", "lat": null, "lng": null },
+  "KWAMKI NARAMA": {
+    "long_name": "KWAMKI NARAMA",
+    "lat": null,
+    "lng": null
+  },
   "AGIMUGA": {
     "long_name": "Agimuga, Mimika Regency, Papua, Indonesia",
     "lat": -4.63777,
@@ -31928,7 +32174,11 @@
     "lat": -5.90266,
     "lng": 138.75931
   },
-  "BECTBAMU": { "long_name": "BECTBAMU", "lat": null, "lng": null },
+  "BECTBAMU": {
+    "long_name": "BECTBAMU",
+    "lat": null,
+    "lng": null
+  },
   "SUATOR": {
     "long_name": "Suator, Asmat Regency, Papua, Indonesia",
     "lat": -5.19116,
@@ -32354,7 +32604,11 @@
     "lat": -4.73026,
     "lng": 140.86646
   },
-  "OKSEBANG": { "long_name": "OKSEBANG", "lat": null, "lng": null },
+  "OKSEBANG": {
+    "long_name": "OKSEBANG",
+    "lat": null,
+    "lng": null
+  },
   "OKHIKA": {
     "long_name": "Okhika, Pegunungan Bintang Regency, Papua, Indonesia",
     "lat": -4.65945,
@@ -32365,7 +32619,11 @@
     "lat": -4.77041,
     "lng": 140.78844
   },
-  "OKSAMOL": { "long_name": "OKSAMOL", "lat": null, "lng": null },
+  "OKSAMOL": {
+    "long_name": "OKSAMOL",
+    "lat": null,
+    "lng": null
+  },
   "OKBEMTA": {
     "long_name": "Okbemta, Pegunungan Bintang Regency, Papua, Indonesia",
     "lat": -4.47409,
@@ -32451,7 +32709,11 @@
     "lat": -3.70867,
     "lng": 138.44376
   },
-  "LIANOGOMA": { "long_name": "LIANOGOMA", "lat": null, "lng": null },
+  "LIANOGOMA": {
+    "long_name": "LIANOGOMA",
+    "lat": null,
+    "lng": null
+  },
   "BIUK": {
     "long_name": "Biuk, Kabupaten Tolikara, Papua, Indonesia",
     "lat": -3.67986,
@@ -32632,7 +32894,11 @@
     "lat": -2.27136,
     "lng": 138.79951
   },
-  "ISMARI": { "long_name": "ISMARI", "lat": null, "lng": null },
+  "ISMARI": {
+    "long_name": "ISMARI",
+    "lat": null,
+    "lng": null
+  },
   "SARMI": {
     "long_name": "Sarmi Regency, Papua, Indonesia",
     "lat": -2.46781,
@@ -32648,9 +32914,21 @@
     "lat": -2.05711,
     "lng": 138.679
   },
-  "SOBEY": { "long_name": "SOBEY", "lat": null, "lng": null },
-  "MUARA TOR": { "long_name": "MUARA TOR", "lat": null, "lng": null },
-  "VERKAM": { "long_name": "VERKAM", "lat": null, "lng": null },
+  "SOBEY": {
+    "long_name": "SOBEY",
+    "lat": null,
+    "lng": null
+  },
+  "MUARA TOR": {
+    "long_name": "MUARA TOR",
+    "lat": null,
+    "lng": null
+  },
+  "VERKAM": {
+    "long_name": "VERKAM",
+    "lat": null,
+    "lng": null
+  },
   "PANTAI BARAT": {
     "long_name": "West Pantai, Sarmi Regency, Papua, Indonesia",
     "lat": -1.80965,
@@ -32661,8 +32939,16 @@
     "lat": -2.04698,
     "lng": 138.35892
   },
-  "APAWER HILIR": { "long_name": "APAWER HILIR", "lat": null, "lng": null },
-  "APAWER TENGAH": { "long_name": "APAWER TENGAH", "lat": null, "lng": null },
+  "APAWER HILIR": {
+    "long_name": "APAWER HILIR",
+    "lat": null,
+    "lng": null
+  },
+  "APAWER TENGAH": {
+    "long_name": "APAWER TENGAH",
+    "lat": null,
+    "lng": null
+  },
   "WEB": {
     "long_name": "Web, Keerom Regency, Papua, Indonesia",
     "lat": -3.63942,
@@ -32713,7 +32999,11 @@
     "lat": -2.21782,
     "lng": 136.44531
   },
-  "OUDATE": { "long_name": "OUDATE", "lat": null, "lng": null },
+  "OUDATE": {
+    "long_name": "OUDATE",
+    "lat": null,
+    "lng": null
+  },
   "MASIREI": {
     "long_name": "Masirei, Waropen Regency, Papua, Indonesia",
     "lat": -2.53266,
@@ -32789,7 +33079,11 @@
     "lat": -3.63211,
     "lng": 138.9606
   },
-  "IWASO": { "long_name": "IWASO", "lat": null, "lng": null },
+  "IWASO": {
+    "long_name": "IWASO",
+    "lat": null,
+    "lng": null
+  },
   "MAMBERAMO TENGAH TIMUR": {
     "long_name": "East Mamberamo Tengah, Mamberamo Raya Regency, Papua, Indonesia",
     "lat": -2.72334,
@@ -32850,41 +33144,81 @@
     "lat": -6.9918,
     "lng": 113.96554
   },
-  "KOLAWA": { "long_name": "KOLAWA", "lat": null, "lng": null },
-  "GELOK BEAM": { "long_name": "GELOK BEAM", "lat": null, "lng": null },
+  "KOLAWA": {
+    "long_name": "KOLAWA",
+    "lat": null,
+    "lng": null
+  },
+  "GELOK BEAM": {
+    "long_name": "GELOK BEAM",
+    "lat": null,
+    "lng": null
+  },
   "PIRIME": {
     "long_name": "Pirime, Lanny Jaya Regency, Papua, Indonesia",
     "lat": -4.01475,
     "lng": 138.51872
   },
-  "BUGUK GONA": { "long_name": "BUGUK GONA", "lat": null, "lng": null },
+  "BUGUK GONA": {
+    "long_name": "BUGUK GONA",
+    "lat": null,
+    "lng": null
+  },
   "MILIMBO": {
     "long_name": "Milimbo, Pirime, Lanny Jaya Regency, Papua, Indonesia",
     "lat": -3.90536,
     "lng": 138.46373
   },
-  "GOLLO": { "long_name": "GOLLO", "lat": null, "lng": null },
-  "WIRINGGABUT": { "long_name": "WIRINGGABUT", "lat": null, "lng": null },
+  "GOLLO": {
+    "long_name": "GOLLO",
+    "lat": null,
+    "lng": null
+  },
+  "WIRINGGABUT": {
+    "long_name": "WIRINGGABUT",
+    "lat": null,
+    "lng": null
+  },
   "TIOM": {
     "long_name": "Tiom, Lanny Jaya Regency, Papua, Indonesia",
     "lat": -3.91439,
     "lng": 138.28914
   },
-  "NOGI": { "long_name": "NOGI", "lat": null, "lng": null },
+  "NOGI": {
+    "long_name": "NOGI",
+    "lat": null,
+    "lng": null
+  },
   "MOKONI": {
     "long_name": "Mokoni, Tiom, Lanny Jaya Regency, Papua, Indonesia",
     "lat": -3.9331,
     "lng": 138.40381
   },
-  "NINAME": { "long_name": "NINAME", "lat": null, "lng": null },
-  "YIGINUA": { "long_name": "YIGINUA", "lat": null, "lng": null },
+  "NINAME": {
+    "long_name": "NINAME",
+    "lat": null,
+    "lng": null
+  },
+  "YIGINUA": {
+    "long_name": "YIGINUA",
+    "lat": null,
+    "lng": null
+  },
   "BALINGGA": {
     "long_name": "Balingga, Lanny Jaya Regency, Papua, Indonesia",
     "lat": -4.13066,
     "lng": 138.35892
   },
-  "BALINGGA BARAT": { "long_name": "BALINGGA BARAT", "lat": null, "lng": null },
-  "BRUWA": { "long_name": "BRUWA", "lat": null, "lng": null },
+  "BALINGGA BARAT": {
+    "long_name": "BALINGGA BARAT",
+    "lat": null,
+    "lng": null
+  },
+  "BRUWA": {
+    "long_name": "BRUWA",
+    "lat": null,
+    "lng": null
+  },
   "KUYAWAGE": {
     "long_name": "Kuyawage, Lanny Jaya Regency, Papua, Indonesia",
     "lat": -4.04261,

@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import './App.css';
 import MultiStopOSRMRoute from './components/map';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faTruck, faBell, faUser, faPlus, faTruckLoading, 
+import {
+  faTruck, faBell, faUser, faPlus, faTruckLoading,
   faClock, faDollarSign, faPlay, faRoad, faArrowsTurnRight,
   // faArrowLeft,
-  faFlagCheckered, faShip, faEye, faEdit, faPhone, faCalendar, 
+  faFlagCheckered, faShip, faEye, faEdit, faPhone, faCalendar,
   faArrowUp, faArrowDown, faInfoCircle, faLocationDot, faTimes,
   faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +29,13 @@ function App() {
   //   'Magelang', 'Jember', 'Kediri', 'Probolinggo'
   // ];
 
-  const indonesianCities = Object.keys(districts);
+  const indonesianCities = Object.entries(districts)
+    .filter(([_, value]) => value.store_code && value.store_name)
+    .map(([key, value]) => ({
+      name: key,
+      store_code: value.store_code,
+      store_name: value.store_name
+    }));
 
   // Add another waypoint field
   const addWaypoint = () => {
@@ -40,7 +46,7 @@ function App() {
   const removeWaypoint = (index) => {
     // Don't remove if there are only 2 waypoints
     if (waypoints.length <= 2) return;
-    
+
     const newWaypoints = [...waypoints];
     newWaypoints.splice(index, 1);
     setWaypoints(newWaypoints);
@@ -56,12 +62,12 @@ function App() {
   const calculateRoute = () => {
     // Filter out any empty waypoints
     const filteredWaypoints = waypoints.filter(wp => wp);
-    
+
     if (filteredWaypoints.length < 2) {
       alert('Pilih minimal 2 lokasi untuk menghitung rute.');
       return;
     }
-    
+
     // Check for duplicates next to each other
     for (let i = 0; i < filteredWaypoints.length - 1; i++) {
       if (filteredWaypoints[i] === filteredWaypoints[i + 1]) {
@@ -69,7 +75,7 @@ function App() {
         return;
       }
     }
-    
+
     setLoading(true);
     setShowRouteResults(true);
     setWaypoints(filteredWaypoints); // Update state with filtered waypoints
@@ -77,7 +83,7 @@ function App() {
 
   const handleRouteCalculated = (routeData) => {
     setLoading(false);
-    
+
     if (routeData) {
       // Adjust costs based on vehicle type
       const costMultiplier = vehicleType === 'truck' ? 1 : 0.75;
@@ -87,13 +93,13 @@ function App() {
         maintenanceCost: Math.round(routeData.costs.maintenanceCost * costMultiplier),
         tollCost: Math.round(routeData.costs.tollCost * costMultiplier),
         totalCost: Math.round(
-          routeData.costs.fuelCost * costMultiplier + 
-          routeData.costs.maintenanceCost * costMultiplier + 
-          routeData.costs.tollCost * costMultiplier + 
+          routeData.costs.fuelCost * costMultiplier +
+          routeData.costs.maintenanceCost * costMultiplier +
+          routeData.costs.tollCost * costMultiplier +
           routeData.costs.driverCost
         )
       };
-      
+
       setRouteDetails({
         ...routeData,
         costs: adjustedCosts
@@ -155,7 +161,7 @@ function App() {
           </nav>
         </div>
       </header>
-      
+
       <main className="container dashboard">
         <div className="dashboard-header">
           <h1 className="dashboard-title">Dashboard</h1>
@@ -164,7 +170,7 @@ function App() {
             Pengiriman Baru
           </button>
         </div>
-        
+
         <div className="cards">
           <div className="card">
             <div className="card-header">
@@ -184,7 +190,7 @@ function App() {
               <span>vs minggu lalu</span>
             </div>
           </div>
-          
+
           <div className="card">
             <div className="card-header">
               <div className="card-title">Kendaraan Tersedia</div>
@@ -203,7 +209,7 @@ function App() {
               <span>vs minggu lalu</span>
             </div>
           </div>
-          
+
           <div className="card">
             <div className="card-header">
               <div className="card-title">Pengiriman Tepat Waktu</div>
@@ -222,7 +228,7 @@ function App() {
               <span>vs bulan lalu</span>
             </div>
           </div>
-          
+
           <div className="card">
             <div className="card-header">
               <div className="card-title">Pendapatan Bulanan</div>
@@ -242,18 +248,18 @@ function App() {
             </div>
           </div>
         </div>
-        
+
         <div className="section">
           <div className="section-header">
             <h2 className="section-title">Route Calculation</h2>
           </div>
-          
+
           <div style={{ marginBottom: '1.5rem' }}>
             <div className="multi-stop-form">
               {waypoints.map((waypoint, index) => (
-                <div key={index} className="waypoint-row" style={{ 
-                  display: 'flex', 
-                  gap: '0.5rem', 
+                <div key={index} className="waypoint-row" style={{
+                  display: 'flex',
+                  gap: '0.5rem',
                   marginBottom: '0.75rem',
                   alignItems: 'flex-end'
                 }}>
@@ -261,22 +267,24 @@ function App() {
                     <label htmlFor={`waypoint-${index}`} className="block text-sm font-medium text-slate-700 mb-1">
                       {index === 0 ? 'Start point' : index === waypoints.length - 1 ? 'End point' : `Stop ${index}`}
                     </label>
-                    <select 
+                    <select
                       id={`waypoint-${index}`}
                       className="form-control w-full"
                       value={waypoint}
                       onChange={(e) => updateWaypoint(index, e.target.value)}
                     >
                       <option value="">Choose location</option>
-                      {indonesianCities.map(city => (
-                        <option key={`${index}-${city}`} value={city}>{city}</option>
+                      {indonesianCities.map((city, index) => (
+                        <option key={`${index}-${city.store_code}`} value={city.store_code}>
+                          {city.store_code} - {city.store_name}
+                        </option>
                       ))}
                     </select>
                   </div>
-                  
+
                   {/* Remove button - only show for intermediate waypoints when there are more than 2 waypoints */}
                   {waypoints.length > 2 && index > 0 && index < waypoints.length - 1 && (
-                    <button 
+                    <button
                       className="remove-waypoint"
                       onClick={() => removeWaypoint(index)}
                       style={{
@@ -294,19 +302,19 @@ function App() {
                 </div>
               ))}
             </div>
-            
+
             <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-              <button 
-                onClick={addWaypoint} 
+              <button
+                onClick={addWaypoint}
                 className="secondary"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
               >
                 <FontAwesomeIcon icon={faPlus} />
                 Add stop
               </button>
-              
-              <button 
-                onClick={calculateRoute} 
+
+              <button
+                onClick={calculateRoute}
                 disabled={loading}
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
               >
@@ -314,7 +322,7 @@ function App() {
               </button>
             </div>
           </div>
-          
+
           <div className="vehicle-type-selector" style={{ marginBottom: '1rem' }}>
             <label style={{ marginRight: '1rem' }}>Vehicle type:</label>
             <label style={{ marginRight: '1rem' }}>
@@ -338,20 +346,20 @@ function App() {
               Van
             </label>
           </div>
-          
+
           <div style={{ position: 'relative' }}>
             {/* Multi-Stop OSRM Integration */}
-            <MultiStopOSRMRoute 
-              waypoints={showRouteResults ? waypoints.filter(wp => wp) : []} 
+            <MultiStopOSRMRoute
+              waypoints={showRouteResults ? waypoints.filter(wp => wp) : []}
               onRouteCalculated={handleRouteCalculated}
             />
           </div>
-          
+
           {(showRouteResults || showDetails) && routeDetails && (
             <div id="route-results" className="route-results">
               {routeDetails.isEstimated && (
-                <div className="route-estimated-note" style={{ 
-                  backgroundColor: 'rgba(245, 158, 11, 0.1)', 
+                <div className="route-estimated-note" style={{
+                  backgroundColor: 'rgba(245, 158, 11, 0.1)',
                   color: 'var(--warning)',
                   padding: '0.75rem',
                   borderRadius: '0.375rem',
@@ -365,8 +373,8 @@ function App() {
                   <span>Rute ini diperkirakan. Data rute yang tepat mungkin tidak tersedia untuk lokasi yang dipilih.</span>
                 </div>
               )}
-              
-              <div className="route-summary" style={{ 
+
+              <div className="route-summary" style={{
                 backgroundColor: 'var(--primary)',
                 color: 'white',
                 padding: '1rem',
@@ -393,15 +401,15 @@ function App() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Leg-by-leg breakdown */}
               {routeDetails.legs && (
                 <div className="route-legs" style={{ marginBottom: '1.5rem' }}>
                   <h3 style={{ marginBottom: '0.75rem', fontWeight: 'bold' }}>Detail Perjalan</h3>
                   <div className="legs-container" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {routeDetails.legs.map((leg, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className="leg-item"
                         style={{
                           backgroundColor: 'white',
@@ -424,12 +432,12 @@ function App() {
                   </div>
                 </div>
               )}
-              
-              <div className="cost-breakdown" style={{ 
+
+              <div className="cost-breakdown" style={{
                 marginTop: '1.5rem',
                 backgroundColor: 'var(--light)',
                 padding: '1rem',
-                borderRadius: '0.375rem' 
+                borderRadius: '0.375rem'
               }}>
                 <h4 style={{ marginBottom: '0.75rem' }}>Rincian Biaya:</h4>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
@@ -448,9 +456,9 @@ function App() {
                   <span>Biaya Pengemudi:</span>
                   <span>Rp. {formatRupiah(routeDetails.costs?.driverCost || 0)}</span>
                 </div>
-                <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
                   marginTop: '0.75rem',
                   paddingTop: '0.75rem',
                   borderTop: '1px solid var(--border)',
@@ -460,7 +468,7 @@ function App() {
                   <span>Rp. {formatRupiah(routeDetails.costs?.totalCost || 0)}</span>
                 </div>
               </div>
-              
+
               {routeDetails.steps && (
                 <div className="route-details">
                   <h3 style={{ marginTop: '1.5rem', marginBottom: '0.75rem' }}>Petunjuk Rute:</h3>
@@ -477,7 +485,7 @@ function App() {
                   ))}
                 </div>
               )}
-              
+
               <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem' }}>
                 <button>
                   <FontAwesomeIcon icon={faEdit} className="mr-2" />
@@ -491,13 +499,13 @@ function App() {
             </div>
           )}
         </div>
-        
+
         <div className="section">
           <div className="section-header">
             <h2 className="section-title">Pengiriman Terakhir</h2>
             <button className="secondary">Lihat Semua</button>
           </div>
-          
+
           <table>
             <thead>
               <tr>
@@ -536,13 +544,13 @@ function App() {
             </tbody>
           </table>
         </div>
-        
+
         <div className="section">
           <div className="section-header">
             <h2 className="section-title">Ketersediaan Pengemudi</h2>
             <button className="secondary">Kelola Pengemudi</button>
           </div>
-          
+
           <table>
             <thead>
               <tr>
@@ -582,7 +590,7 @@ function App() {
           </table>
         </div>
       </main>
-      
+
       <footer className="bg-white border-t border-slate-200 mt-12 py-6">
         <div className="container flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
