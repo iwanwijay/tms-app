@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./WaypointTracking.css"; // Import the CSS file
+import "./waypointTracking.css";
 
 const WaypointTracking = ({ waypoints }) => {
     const plannedRoute = waypoints;
