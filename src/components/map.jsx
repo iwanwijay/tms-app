@@ -497,40 +497,6 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
     setLoading(true);
     setError(null);
 
-    // Add markers for all waypoints
-    const newMarkers = [];
-    waypoints.forEach((city, index) => {
-      const coords = districtCoordinates[city.toLowerCase()];
-      if (!coords) return;
-
-      // Use different markers for start, intermediate, and end points
-      const icon =
-        index === 0
-          ? L.Icon.Default // Start
-          : index === waypoints.length - 1
-          ? L.Icon.Default // End
-          : waypointIcon; // Intermediate
-
-      const marker = L.marker([coords.lat, coords.lng])
-        .addTo(map)
-        .bindPopup(
-          `<b>${city}</b><br>${
-            index === 0
-              ? "Titik Awal"
-              : index === waypoints.length - 1
-              ? "Tujuan Akhir"
-              : "Pemberhentian"
-          }`
-        );
-
-      // Open popup for the first marker
-      if (index === 0) marker.openPopup();
-
-      newMarkers.push(marker);
-    });
-
-    setMarkers(newMarkers);
-
     // Fetch route from OSRM API
     const getMultiStopRoute = async () => {
       const { result: routeData, new_waypoints } = await fetchMultiStopRoute(
@@ -647,6 +613,40 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
           waypoints,
         });
       }
+
+      // Add markers for all waypoints
+      const newMarkers = [];
+      new_waypoints.forEach((city, index) => {
+        const coords = districtCoordinates[city];
+        if (!coords) return;
+
+        // Use different markers for start, intermediate, and end points
+        const icon =
+          index === 0
+            ? L.Icon.Default // Start
+            : index === new_waypoints.length - 1
+            ? L.Icon.Default // End
+            : waypointIcon; // Intermediate
+
+        const marker = L.marker([coords.lat, coords.lng])
+          .addTo(map)
+          .bindPopup(
+            `<b>${city}</b><br>${
+              index === 0
+                ? "Start Point"
+                : index === new_waypoints.length - 1
+                ? "End Point"
+                : `Next Stop ${index}`
+            }`
+          );
+
+        // Open popup for the first marker
+        if (index === 0) marker.openPopup();
+
+        newMarkers.push(marker);
+      });
+
+      setMarkers(newMarkers);
     };
 
     getMultiStopRoute();
