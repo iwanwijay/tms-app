@@ -631,7 +631,7 @@ const MultiStopOSRMRoute = ({ waypoints = [], onRouteCalculated }) => {
         const marker = L.marker([coords.lat, coords.lng])
           .addTo(map)
           .bindPopup(
-            `<b>${city}</b><br>${
+            `<b>${coords.store_name}</b><br>${
               index === 0
                 ? "Start Point"
                 : index === new_waypoints.length - 1
